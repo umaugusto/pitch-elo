@@ -1,0 +1,338 @@
+/* ========================================
+   SISTEMA DE TEMAS
+   Overrides de CSS variables por tema
+   ======================================== */
+
+/* Google Fonts - HDL Theme */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Serif:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800&display=swap');
+
+/* ========================================
+   TEMA: Wireframe (DEFAULT)
+   Escala de cinza pura, sem cores
+   ======================================== */
+
+[data-theme="wireframe"] {
+  /* Escala de cinza neutra (sem tint azul) */
+  --color-gray-950: #0a0a0a;
+  --color-gray-900: #171717;
+  --color-gray-800: #262626;
+  --color-gray-700: #404040;
+  --color-gray-600: #525252;
+  --color-gray-500: #737373;
+  --color-gray-400: #a3a3a3;
+  --color-gray-300: #d4d4d4;
+  --color-gray-200: #e5e5e5;
+  --color-gray-100: #f5f5f5;
+  --color-gray-50: #fafafa;
+
+  /* Cor principal de texto */
+  --color-charcoal: #0a0a0a;
+
+  /* Accent: cinza médio */
+  --color-accent: #737373;
+  --color-accent-hover: #525252;
+
+  /* Cores Einstein → cinza */
+  --color-einstein-azul: #404040;
+  --color-einstein-turquesa: #737373;
+
+  /* Aliases legados */
+  --color-gray-mid: #737373;
+  --color-gray-light: #e5e5e5;
+  --color-gray-dark: #262626;
+
+  /* Sombras neutras (sem tint azul) */
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   TEMA: Einstein (Cores Institucionais)
+   Mantém valores de variables.css
+   ======================================== */
+
+[data-theme="einstein"] {
+  /* Herda tudo de variables.css - nenhum override necessário */
+}
+
+/* ========================================
+   TEMA: Health Design Lab (HDL)
+   Paleta roxa com gradientes suaves
+   ======================================== */
+
+[data-theme="hdl"] {
+  /* Escala de cinza com tint roxo */
+  --color-gray-950: #1a1425;
+  --color-gray-900: #2d2440;
+  --color-gray-800: #3d3155;
+  --color-gray-700: #5a4a75;
+  --color-gray-600: #7B5FC4;
+  --color-gray-500: #A280E1;
+  --color-gray-400: #C4A8F0;
+  --color-gray-300: #E3D8F7;
+  --color-gray-200: #F0E8FC;
+  --color-gray-100: #F8F5FE;
+  --color-gray-50: #FCFAFF;
+
+  /* Cor principal de texto */
+  --color-charcoal: #1a1425;
+
+  /* Accent: HDL Purple */
+  --color-accent: #A280E1;
+  --color-accent-hover: #7B5FC4;
+
+  /* Einstein colors → roxo HDL */
+  --color-einstein-azul: #5A3E9E;
+  --color-einstein-turquesa: #A280E1;
+
+  /* Aliases legados */
+  --color-gray-mid: #A280E1;
+  --color-gray-light: #E3D8F7;
+  --color-gray-dark: #3d3155;
+
+  /* Sombras com tint roxo */
+  --shadow-subtle: 0 1px 2px rgba(162, 128, 225, 0.04);
+  --shadow-sm: 0 2px 4px rgba(162, 128, 225, 0.06);
+  --shadow-md: 0 4px 8px rgba(162, 128, 225, 0.08);
+  --shadow-lg: 0 8px 16px rgba(162, 128, 225, 0.10);
+  --shadow-xl: 0 16px 32px rgba(162, 128, 225, 0.12);
+
+  /* Tipografia HDL */
+  --font-display: 'Roboto Serif', Georgia, serif;
+  --font-body: 'Open Sans', Arial, sans-serif;
+}
+
+/* Slides de seção - HDL */
+[data-theme="hdl"] .slide--section-cover {
+  background: linear-gradient(135deg, var(--color-gray-400) 0%, var(--color-gray-500) 100%);
+}
+
+[data-theme="hdl"] .slide--section-cover .subtitle {
+  color: var(--color-gray-800);
+}
+
+/* Gráfico decorativo nos slides de seção - HDL */
+[data-theme="hdl"] .slide--section-cover::after,
+[data-theme="hdl"] .slide--subsection-cover::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
+  background-image: url('../assets/HDL_Grafico_Decorativo.png');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
+[data-theme="hdl"] .slide--section-cover .slide-content,
+[data-theme="hdl"] .slide--subsection-cover .slide-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Logos no header - HDL (remove placeholder styling) */
+[data-theme="hdl"] .client-logo {
+  width: auto;
+  height: auto;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+[data-theme="hdl"] .client-logo img {
+  height: 28px;
+  width: auto;
+}
+
+/* Número de fundo mais visível - HDL */
+[data-theme="hdl"] .slide--section-cover .section-number-bg {
+  opacity: 0.10;
+}
+
+/* Header e footer brancos nos slides de seção - HDL */
+[data-theme="hdl"] .slide--section-cover .slide-header,
+[data-theme="hdl"] .slide--section-cover .slide-footer {
+  background: var(--color-white);
+  color: var(--color-charcoal);
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme="hdl"] .slide--section-cover .slide-footer {
+  border-top: 1px solid var(--color-gray-200);
+}
+
+/* Gallery refinements - HDL */
+[data-theme="hdl"] .masonry__caption,
+[data-theme="hdl"] .gallery__caption,
+[data-theme="hdl"] .hero-gallery__caption,
+[data-theme="hdl"] .carousel__description {
+  color: var(--color-gray-700);
+}
+
+[data-theme="hdl"] .masonry__placeholder,
+[data-theme="hdl"] .gallery__placeholder,
+[data-theme="hdl"] .hero-gallery__placeholder {
+  opacity: 0.5;
+  color: var(--color-gray-500);
+}
+
+/* ========================================
+   TEMA: UFRJ (Cores Institucionais)
+   Azul institucional com design limpo
+   ======================================== */
+
+[data-theme="ufrj"] {
+  /* Escala de cinza neutra (base wireframe) */
+  --color-gray-950: #0a0a0a;
+  --color-gray-900: #171717;
+  --color-gray-800: #262626;
+  --color-gray-700: #404040;
+  --color-gray-600: #525252;
+  --color-gray-500: #737373;
+  --color-gray-400: #a3a3a3;
+  --color-gray-300: #d4d4d4;
+  --color-gray-200: #e5e5e5;
+  --color-gray-100: #f5f5f5;
+  --color-gray-50: #fafafa;
+
+  /* Cor principal de texto */
+  --color-charcoal: #0a0a0a;
+
+  /* Accent: Azul UFRJ */
+  --color-accent: #0054A6;
+  --color-accent-hover: #003366;
+
+  /* Cores institucionais */
+  --color-einstein-azul: #0054A6;
+  --color-einstein-turquesa: #0054A6;
+
+  /* Aliases legados */
+  --color-gray-mid: #737373;
+  --color-gray-light: #e5e5e5;
+  --color-gray-dark: #262626;
+
+  /* Sombras neutras */
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Slides de seção - UFRJ */
+[data-theme="ufrj"] .slide--section-cover {
+  background: linear-gradient(135deg, #0054A6 0%, #003366 100%);
+}
+
+[data-theme="ufrj"] .slide--section-cover .section-title,
+[data-theme="ufrj"] .slide--section-cover .subtitle {
+  color: var(--color-white);
+}
+
+[data-theme="ufrj"] .slide--section-cover .section-number-bg {
+  color: rgba(255, 255, 255, 0.08);
+}
+
+/* ========================================
+   TEMA: COPPE/UFRJ (Cores Institucionais)
+   Vinho + Verde complementar
+   ======================================== */
+
+/* Google Fonts - COPPE Theme */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Verdana&display=swap');
+
+[data-theme="coppe"] {
+  /* Escala de cinza com base no Grafite COPPE */
+  --color-gray-950: #1a1a1a;
+  --color-gray-900: #262626;
+  --color-gray-800: #333333;
+  --color-gray-700: #4d4d4d;
+  --color-gray-600: #6F6F6E;
+  --color-gray-500: #8a8a8a;
+  --color-gray-400: #a6a6a6;
+  --color-gray-300: #d4d4d4;
+  --color-gray-200: #e5e5e5;
+  --color-gray-100: #f5f5f5;
+  --color-gray-50: #fafafa;
+
+  /* Cor principal de texto - Grafite COPPE */
+  --color-charcoal: #333333;
+
+  /* Accent: Vinho COPPE */
+  --color-accent: #8A2432;
+  --color-accent-hover: #6d1c28;
+
+  /* Cores institucionais COPPE */
+  --color-coppe-vinho: #8A2432;
+  --color-coppe-cinza: #6F6F6E;
+  --color-coppe-grafite: #333333;
+  --color-coppe-verde: #016079;
+
+  /* Aliases para compatibilidade */
+  --color-einstein-azul: #8A2432;
+  --color-einstein-turquesa: #016079;
+
+  /* Aliases legados */
+  --color-gray-mid: #6F6F6E;
+  --color-gray-light: #e5e5e5;
+  --color-gray-dark: #333333;
+
+  /* Sombras neutras */
+  --shadow-subtle: 0 1px 2px rgba(51, 51, 51, 0.03);
+  --shadow-sm: 0 2px 4px rgba(51, 51, 51, 0.04);
+  --shadow-md: 0 4px 8px rgba(51, 51, 51, 0.05);
+  --shadow-lg: 0 8px 16px rgba(51, 51, 51, 0.06);
+  --shadow-xl: 0 16px 32px rgba(51, 51, 51, 0.08);
+
+  /* Tipografia COPPE */
+  --font-display: 'Poppins', Arial, sans-serif;
+  --font-body: 'Verdana', Arial, sans-serif;
+}
+
+/* Slides de seção - COPPE */
+[data-theme="coppe"] .slide--section-cover {
+  background: linear-gradient(135deg, #8A2432 0%, #6d1c28 100%);
+}
+
+[data-theme="coppe"] .slide--section-cover .section-title,
+[data-theme="coppe"] .slide--section-cover .subtitle {
+  color: var(--color-white);
+}
+
+[data-theme="coppe"] .slide--section-cover .section-number-bg {
+  color: rgba(255, 255, 255, 0.08);
+}
+
+/* Header e footer nos slides de seção - COPPE */
+[data-theme="coppe"] .slide--section-cover .slide-header,
+[data-theme="coppe"] .slide--section-cover .slide-footer {
+  background: var(--color-white);
+  color: var(--color-charcoal);
+  position: relative;
+  z-index: 2;
+}
+
+/* Accent line nos cards - COPPE */
+[data-theme="coppe"] .accent-line {
+  background: var(--color-coppe-vinho);
+}
+
+/* Links e destaques - COPPE */
+[data-theme="coppe"] a {
+  color: var(--color-coppe-verde);
+}
+
+[data-theme="coppe"] a:hover {
+  color: var(--color-coppe-vinho);
+}

@@ -1,0 +1,174 @@
+/* Design Tokens - Einstein IDV */
+
+/* Google Fonts - Work Sans (tipografia institucional Einstein) */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Typography - Einstein System */
+  --font-display: 'Work Sans', Arial, sans-serif;
+  --font-body: 'Work Sans', Arial, sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+
+  /* ========================================
+     PALETA EINSTEIN - Cores Institucionais
+     ======================================== */
+
+  /* Cores Primárias */
+  --color-einstein-azul: #004F92;         /* Azul Einstein - Pantone 294C */
+  --color-einstein-turquesa: #3AD6CA;     /* Turquesa - Pantone 3255C */
+  --color-einstein-branco: #FFFFFF;
+
+  /* Cores Secundárias - Pacientes (Rosa) */
+  --color-rosa-paciente: #EE5A7B;         /* Pantone 1777C */
+  --color-rosa-medio: #FFA6BA;
+  --color-rosa-claro: #FFC9D5;
+
+  /* Cores Secundárias - Médicos (Laranja) */
+  --color-laranja-medico: #E3740C;        /* Pantone 716C */
+  --color-laranja-medio: #FFB157;
+  --color-laranja-claro: #FFE4C7;
+
+  /* Cores Secundárias - Corporativo (Roxo) */
+  --color-roxo-corporativo: #7846D4;      /* Pantone 266C */
+  --color-roxo-medio: #D3BAFF;            /* Pantone 529C */
+  --color-roxo-claro: #E8DDFF;
+
+  /* ========================================
+     ESCALA DERIVADA DO AZUL EINSTEIN
+     ======================================== */
+  --color-charcoal: #002244;              /* Azul profundo - primary text */
+  --color-gray-950: #002244;
+  --color-gray-900: #003366;
+  --color-gray-800: #004080;
+  --color-gray-700: #004F92;              /* = Azul Einstein */
+  --color-gray-600: #3373A8;
+  --color-gray-500: #6699C0;
+  --color-gray-400: #99BFD8;
+  --color-gray-300: #B8D4E8;
+  --color-gray-200: #D6E8F4;
+  --color-gray-100: #EBF4FA;
+  --color-gray-50: #F5FAFD;
+  --color-white: #FFFFFF;
+
+  /* Semantic colors */
+  --color-text-primary: var(--color-gray-950);
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-background-primary: var(--color-white);
+  --color-background-secondary: var(--color-gray-50);
+  --color-border: var(--color-gray-200);
+  --color-border-subtle: var(--color-gray-100);
+
+  /* Accent colors */
+  --color-accent: var(--color-einstein-turquesa);
+  --color-accent-hover: #2BC4B8;
+
+  /* Legacy color aliases (backward compatibility) */
+  --color-gray-mid: var(--color-gray-500);
+  --color-gray-light: var(--color-gray-200);
+  --color-gray-dark: var(--color-gray-800);
+
+  /* ========================================
+     TIPOGRAFIA - Sistema Einstein
+     ======================================== */
+
+  /* Hierarquia conforme guia de marca */
+  --font-size-hero: 80px;            /* Editorial large title */
+  --font-size-h1: 60px;              /* Título - Light/Regular */
+  --font-size-h2: 40px;              /* Section heading */
+  --font-size-h3: 30px;              /* Subtítulo - Semibold/Medium */
+  --font-size-h4: 20px;              /* Corpo destaque - Semibold */
+  --font-size-body: 20px;            /* Corpo - Regular/Medium */
+  --font-size-small: 14px;           /* Retranca - Medium */
+  --font-size-tiny: 12px;            /* Labels - min legible */
+
+  /* Line heights */
+  --line-height-tight: 1.05;         /* Display */
+  --line-height-snug: 1.2;           /* Headings */
+  --line-height-normal: 1.5;         /* Body */
+  --line-height-relaxed: 1.7;        /* Long-form */
+
+  /* Font weights - Work Sans */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* ========================================
+     DIMENSÕES E ESPAÇAMENTO
+     ======================================== */
+
+  /* Slide dimensions (1280x720 - 16:9) */
+  --slide-width: 1280px;
+  --slide-height: 720px;
+  --slide-ratio: 1.777;
+
+  /* Spacing - Sistema em incrementos de 8pt (guia Einstein) */
+  --slide-padding: 80px;
+  --slide-padding-top: 80px;
+  --slide-padding-bottom: 80px;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Gap system (semantic) */
+  --gap-xs: var(--space-2);          /* 8px */
+  --gap-sm: var(--space-4);          /* 16px */
+  --gap-md: var(--space-5);          /* 24px */
+  --gap-lg: var(--space-6);          /* 32px */
+  --gap-xl: var(--space-7);          /* 48px */
+  --gap-2xl: var(--space-8);         /* 64px */
+
+  /* Semantic spacing aliases (legacy) */
+  --space-xs: var(--space-2);
+  --space-sm: var(--space-4);
+  --space-md: var(--space-5);
+  --space-lg: var(--space-6);
+  --space-xl: var(--space-7);
+
+  /* Grid system */
+  --grid-columns: 12;
+  --grid-gap: var(--gap-md);
+
+  /* Metric typography */
+  --font-size-metric: 64px;
+  --font-size-metric-sm: 48px;
+
+  /* Border radius - Subtle */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+
+  /* Borders */
+  --border-hairline: 0.5px solid var(--color-border-subtle);
+  --border-thin: 1px solid var(--color-border);
+  --border-medium: 2px solid var(--color-gray-300);
+
+  /* Shadows */
+  --shadow-subtle: 0 1px 2px rgba(0, 79, 146, 0.03);
+  --shadow-sm: 0 2px 4px rgba(0, 79, 146, 0.04);
+  --shadow-md: 0 4px 8px rgba(0, 79, 146, 0.05);
+  --shadow-lg: 0 8px 16px rgba(0, 79, 146, 0.06);
+  --shadow-xl: 0 16px 32px rgba(0, 79, 146, 0.08);
+}
+
+/* Print optimization */
+@media print {
+  :root {
+    --slide-padding: 64px;
+    --shadow-lg: 0 0 0 transparent;
+    --shadow-md: 0 0 0 transparent;
+  }
+}

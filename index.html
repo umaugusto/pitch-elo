@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="coppe">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elo</title>
+
+  <!-- CSS System -->
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/themes.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layouts.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/fixes.css">
+
+  <style>
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+        width: 1280px;
+        height: 720px;
+        background: var(--color-white);
+      }
+      .slide {
+        margin: 0;
+        width: 1280px;
+        height: 720px;
+        page-break-after: always;
+      }
+      .presentation {
+        width: 1280px;
+        gap: 0;
+      }
+    }
+
+    @media screen {
+      body {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .presentation {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .slide {
+        width: 100% !important;
+        max-width: 1280px;
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="presentation">
+    
+<section class="slide slide--cover" id="slide-1" data-slide="1">
+  
+  
+    <div class="slide-content slide-content--cover">
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="cover-logo">
+      <h1>Elo</h1>
+      <p class="subtitle">O prestador como protagonista</p>
+      <p class="meta">Dezembro 2025</p>
+    </div>
+  
+</section>
+
+<section class="slide" id="slide-2" data-slide="2" data-nav="contexto">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--text-image">
+      <div class="text-image">
+        <div class="text-image__text">
+          <h2>De onde eu venho</h2>
+          <p>Sou Antonio Augusto, designer de serviços e mestrando na COPPE/UFRJ.</p><p>Esta é <strong>Santa Rita do Sapucaí</strong> — uma cidade de 45 mil habitantes no Sul de Minas, conhecida como o <strong>Vale da Eletrônica</strong> brasileiro.</p><p>Aqui nasceram mais de 150 empresas de tecnologia. A cidade é sede do <strong>Hacktown</strong>, um festival inspirado no South by Southwest.</p><p>Incubadoras, startups, escolas técnicas. Uma cidade com vocação para tecnologia.<br></p>
+        </div>
+        <div class="text-image__media">
+          <img src="assets/santa-rita.jpg" alt="" class="text-image__img">
+          <span class="text-image__caption">Santa Rita do Sapucaí, MG</span>
+        </div>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">2/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-3" data-slide="3" data-nav="contexto">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--text-image">
+      <div class="text-image">
+        <div class="text-image__text">
+          <h2>Mas também é cidade pequena</h2>
+          <p>Santa Rita também é a terra do Seu João, eletricista há 42 anos. Da Dona Maria, que faz o melhor bolo da cidade. Do Carlos, que conserta qualquer coisa.</p><p>Profissionais que construíram reputação ao longo de décadas. Que vivem de indicação — o telefone toca porque alguém recomendou.</p><p><strong>Mas esse modelo tem limites.</strong> O Seu João não consegue alcançar quem está fora do seu círculo. Não tem tempo nem interesse em "fazer propaganda". Foca no que sabe fazer: o serviço.</p><p>Resultado? <strong>Invisível para quem não o conhece.</strong><br></p>
+        </div>
+        <div class="text-image__media">
+          <img src="assets/personas/seu-joao.jpg" alt="" class="text-image__img text-image__img--portrait">
+          <span class="text-image__caption">Seu João, eletricista</span>
+        </div>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">3/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-4" data-slide="4" data-nav="contexto">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--text-image">
+      <div class="text-image">
+        <div class="text-image__text">
+          <h2>O paradoxo</h2>
+          <p>Uma cidade que produz tecnologia de ponta para o mundo — mas onde encontrar um eletricista ainda depende de perguntar no grupo do WhatsApp.</p><p>Santa Rita é um <strong>caso fora da curva</strong>: polo tecnológico, população conectada, cultura de inovação. E ainda assim, os serviços locais continuam invisíveis.</p><p><strong>Se isso acontece aqui, imagine nas outras 5.500 cidades pequenas do Brasil.</strong></p><p>O problema não é falta de bons profissionais. É falta de visibilidade organizada.<br></p>
+        </div>
+        <div class="text-image__media">
+          <img src="assets/people-search.svg" alt="" class="text-image__img">
+          
+        </div>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">4/22</div>
+  </div>
+</section>
+
+<section class="slide slide--section-cover" id="slide-5" data-slide="5" data-nav="problema">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Problema</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content">
+      <span class="section-number-bg">01</span>
+      <div class="section-text">
+        <h2>O Problema</h2>
+        <p class="subtitle">Invisibilidade e desconfiança</p>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">5/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-6" data-slide="6" data-nav="problema">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Problema</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content">
+      <h2>Dois lados do mesmo problema</h2>
+      <div class="problem-split-v2">
+        
+      <div class="problem-split-v2__side problem-split-v2__side--provider">
+        <div class="problem-split-v2__header">
+          <div class="problem-split-v2__icon">👷</div>
+          <h3 class="problem-split-v2__title">Quem oferece o serviço</h3>
+        </div>
+        <div class="problem-split-v2__stats">
+      <div class="problem-split-v2__stat">
+        <div class="problem-split-v2__stat-value">54%</div>
+        <div class="problem-split-v2__stat-label">informais</div>
+      </div>
+    
+      <div class="problem-split-v2__stat">
+        <div class="problem-split-v2__stat-value">38%</div>
+        <div class="problem-split-v2__stat-label">não veem necessidade de formalizar</div>
+      </div>
+    </div>
+        <div class="problem-split-v2__content">
+          <div class="problem-split-v2__items"><div class="problem-split-v2__item">Foco total na entrega — não sobra tempo para se promover</div><div class="problem-split-v2__item">Não vê vantagem em plataformas que cobram taxas ou exigem CNPJ</div><div class="problem-split-v2__item">Boca-a-boca funcionava, mas a digitalização mudou o jogo</div><div class="problem-split-v2__item">Invisível para quem está fora do círculo de indicações</div></div>
+        </div>
+      </div>
+    
+      <div class="problem-split-v2__side problem-split-v2__side--client">
+        <div class="problem-split-v2__header">
+          <div class="problem-split-v2__icon">🏠</div>
+          <h3 class="problem-split-v2__title">Quem precisa do serviço</h3>
+        </div>
+        <div class="problem-split-v2__stats">
+      <div class="problem-split-v2__stat">
+        <div class="problem-split-v2__stat-value">?</div>
+        <div class="problem-split-v2__stat-label">a quem chamar</div>
+      </div>
+    
+      <div class="problem-split-v2__stat">
+        <div class="problem-split-v2__stat-value">0</div>
+        <div class="problem-split-v2__stat-label">plataformas locais</div>
+      </div>
+    </div>
+        <div class="problem-split-v2__content">
+          <div class="problem-split-v2__items"><div class="problem-split-v2__item">Só encontra prestadores dentro do próprio círculo social</div><div class="problem-split-v2__item">Depende da sorte de alguém responder no grupo do WhatsApp</div><div class="problem-split-v2__item">Plataformas nacionais não chegam em cidades pequenas</div><div class="problem-split-v2__item">Estrelas e rankings não geram a confiança que precisa</div></div>
+        </div>
+      </div>
+    
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">6/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-7" data-slide="7" data-nav="problema">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Problema</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content">
+      <h2>O tamanho do problema</h2>
+      <div class="data-layout">
+        <div class="data-metrics--primary">
+          
+    <div class="data-metric data-metric--primary">
+      <span class="data-metric__value">42M</span>
+      <span class="data-metric__label">empreendedores no Brasil</span>
+      <span class="data-metric__context">30% da população adulta</span>
+    </div>
+  
+    <div class="data-metric data-metric--primary">
+      <span class="data-metric__value">54%</span>
+      <span class="data-metric__label">são informais</span>
+      <span class="data-metric__context">~23 milhões sem CNPJ</span>
+    </div>
+  
+        </div>
+        
+    <div class="data-metrics--secondary">
+      
+        <div class="data-metric data-metric--secondary">
+          <span class="data-metric__value">38%</span>
+          <span class="data-metric__label">não veem necessidade</span>
+          <span class="data-metric__context">de formalizar</span>
+        </div>
+      
+        <div class="data-metric data-metric--secondary">
+          <span class="data-metric__value">74%</span>
+          <span class="data-metric__label">autônomos informais</span>
+          <span class="data-metric__context">19M de 25,5M</span>
+        </div>
+      
+        <div class="data-metric data-metric--secondary">
+          <span class="data-metric__value">90%</span>
+          <span class="data-metric__label">querem mais tecnologia</span>
+          <span class="data-metric__context">para vender serviços</span>
+        </div>
+      
+        <div class="data-metric data-metric--secondary">
+          <span class="data-metric__value">5.500</span>
+          <span class="data-metric__label">cidades pequenas</span>
+          <span class="data-metric__context">sem plataformas locais</span>
+        </div>
+      
+    </div>
+  
+        
+    <div class="data-insight">
+      <p>O problema não é falta de profissionais competentes. É que a <strong>digitalização criou uma lacuna</strong>: quem não está online, não existe. Mas plataformas de escala não resolvem — cidades pequenas precisam de soluções que valorizem <strong>proximidade e pessoalidade</strong>.</p>
+    </div>
+  
+      </div>
+      
+    <span class="data-source">Fonte: GEM Brasil 2023 + IBGE PNAD 2024</span>
+  
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">7/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-8" data-slide="8" data-nav="problema">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Problema</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--question question--has-bg" style="background-image: url('assets/santa-rita.jpg')">
+      <div class="question__overlay"></div>
+      <div class="question__content">
+        <p class="question__context">O desafio</p>
+        <h2 class="question__text">Como podemos ressignificar a <strong>proximidade</strong> — de limitação territorial — em <strong>recurso projetual</strong> para diferenciação?</h2>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">8/22</div>
+  </div>
+</section>
+
+<section class="slide slide--section-cover" id="slide-9" data-slide="9" data-nav="solucao">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Solução</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content">
+      <span class="section-number-bg">02</span>
+      <div class="section-text">
+        <h2>A Solução</h2>
+        <p class="subtitle">Visibilidade baseada em pessoalidade</p>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">9/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-10" data-slide="10" data-nav="solucao">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Solução</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--sh slide-content--solution-hero">
+      <div class="sh-layout">
+        <div class="sh-main">
+          <div class="sh-header solution-hero__header">
+            <h2 class="sh-title">O Elo</h2>
+            <p class="sh-subtitle">Visibilidade baseada em pessoalidade</p>
+          </div>
+          <div class="sh-sections solution-hero__sections">
+    <div class="sh-section">
+      <h3 class="sh-section__title">O que é</h3>
+      <p class="sh-section__text">Uma plataforma onde prestadores criam um <strong>perfil pessoal</strong> — com foto, história e depoimentos de clientes. Um portfólio vivo que o prestador compartilha pelo WhatsApp.</p>
+    </div>
+  
+    <div class="sh-section">
+      <h3 class="sh-section__title">Como funciona</h3>
+      <p class="sh-section__text">Perfil criado em minutos. Após cada serviço, o cliente deixa um <strong>relato escrito</strong> sobre a experiência. Contato direto, sem intermediação.</p>
+    </div>
+  
+    <div class="sh-section">
+      <h3 class="sh-section__title">Por que diferente</h3>
+      <p class="sh-section__text">Apps tradicionais tratam prestadores como catálogo. O Elo inverte: <strong>o prestador é protagonista</strong>. Proximidade como vantagem, não escala.</p>
+    </div>
+  </div>
+        </div>
+        
+        <aside class="sh-sidebar">
+          <div class="sh-card sh-card--is">
+            <h4>É</h4>
+            <p class="sh-card__text">Portfólio pessoal compartilhável. Vitrine de confiança construída por histórias reais. Ferramenta que amplia o alcance do boca-a-boca.</p>
+          </div>
+          
+          <div class="sh-card sh-card--isnot">
+            <h4>Não é</h4>
+            <p class="sh-card__text">Marketplace que compara prestadores por preço. Intermediador de pagamentos ou transações. Plataforma que cobra comissão ou taxa.</p>
+          </div>
+          
+          <div class="sh-highlight">
+            <span class="sh-highlight__label">Princípio central</span>
+            <span class="sh-highlight__value">Gratuito — 100% do valor fica com o prestador</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">10/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-11" data-slide="11" data-nav="solucao">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Solução</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--dual-track">
+      <h2>Como funciona</h2>
+      <div class="dt-v2">
+        <div class="dt-rows">
+          <div class="dt-row dt-row--header">
+            <div class="dt-cell dt-cell--left">
+              <span class="dt-persona__icon">👷</span>
+              <span class="dt-persona__name">Prestador</span>
+            </div>
+            <div class="dt-cell dt-cell--center"></div>
+            <div class="dt-cell dt-cell--right">
+              <span class="dt-persona__icon">🏠</span>
+              <span class="dt-persona__name">Cliente</span>
+            </div>
+          </div>
+          
+      <div class="dt-row  ">
+        <div class="dt-cell dt-cell--left">
+          <strong>Cria perfil</strong>
+          <span>Foto, história, serviços</span>
+        </div>
+        <div class="dt-cell dt-cell--center">
+          <span class="dt-num">1</span>
+          <span class="dt-center-label">visibilidade</span>
+        </div>
+        <div class="dt-cell dt-cell--right">
+          <strong>Recebe indicação</strong>
+          <span>Link de alguém confiável</span>
+        </div>
+      </div>
+    
+      <div class="dt-row  ">
+        <div class="dt-cell dt-cell--left">
+          <strong>Compartilha</strong>
+          <span>Envia link pelo WhatsApp</span>
+        </div>
+        <div class="dt-cell dt-cell--center">
+          <span class="dt-num">2</span>
+          <span class="dt-center-label">confiança</span>
+        </div>
+        <div class="dt-cell dt-cell--right">
+          <strong>Conhece antes</strong>
+          <span>Vê história e depoimentos</span>
+        </div>
+      </div>
+    
+      <div class="dt-row dt-row--connect ">
+        <div class="dt-cell dt-cell--left">
+          <strong>Recebe contato</strong>
+          <span>Cliente chega informado</span>
+        </div>
+        <div class="dt-cell dt-cell--center">
+          <span class="dt-num">3</span>
+          <span class="dt-center-label">encontro</span>
+        </div>
+        <div class="dt-cell dt-cell--right">
+          <strong>Entra em contato</strong>
+          <span>Direto, sem intermediário</span>
+        </div>
+      </div>
+    
+      <div class="dt-row  dt-row--loop">
+        <div class="dt-cell dt-cell--left">
+          <strong>Pede depoimento</strong>
+          <span>Constrói reputação</span>
+        </div>
+        <div class="dt-cell dt-cell--center">
+          <span class="dt-num">4</span>
+          <span class="dt-center-label">reputação</span>
+        </div>
+        <div class="dt-cell dt-cell--right">
+          <strong>Deixa depoimento</strong>
+          <span>Alimenta o ciclo</span>
+        </div>
+      </div>
+    
+        </div>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">11/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-12" data-slide="12" data-nav="solucao/diferencial">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><a href="#slide-9">Solução</a></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content">
+      <h2>Posicionamento</h2>
+      <p class="bt-subtitle">Como o Elo se diferencia das alternativas existentes</p>
+      <table class="bt-table">
+        <thead>
+          <tr class="bt-row bt-row--header">
+            <th class="bt-cell bt-cell--criterion"></th>
+            <th class="bt-cell bt-cell--header ">Grupos WhatsApp</th><th class="bt-cell bt-cell--header ">Facebook</th><th class="bt-cell bt-cell--header ">OLX</th><th class="bt-cell bt-cell--header ">Google</th><th class="bt-cell bt-cell--header ">Indicação</th><th class="bt-cell bt-cell--header bt-cell--highlight">Elo</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+      <tr class="bt-row">
+        <td class="bt-cell bt-cell--criterion">Modelo</td>
+        <td class="bt-cell ">Grátis</td><td class="bt-cell ">Grátis</td><td class="bt-cell ">Anúncio pago</td><td class="bt-cell ">Grátis</td><td class="bt-cell ">Grátis</td><td class="bt-cell bt-cell--highlight">Grátis</td>
+      </tr>
+    
+      <tr class="bt-row">
+        <td class="bt-cell bt-cell--criterion">Protagonista</td>
+        <td class="bt-cell ">Quem posta</td><td class="bt-cell ">Algoritmo</td><td class="bt-cell ">Anunciante</td><td class="bt-cell ">Busca</td><td class="bt-cell ">Quem indica</td><td class="bt-cell bt-cell--highlight">Prestador</td>
+      </tr>
+    
+      <tr class="bt-row">
+        <td class="bt-cell bt-cell--criterion">Reputação</td>
+        <td class="bt-cell ">Nenhuma</td><td class="bt-cell ">Curtidas</td><td class="bt-cell ">Nenhuma</td><td class="bt-cell ">Avaliações</td><td class="bt-cell ">Verbal</td><td class="bt-cell bt-cell--highlight">Depoimentos</td>
+      </tr>
+    
+      <tr class="bt-row">
+        <td class="bt-cell bt-cell--criterion">Barreira</td>
+        <td class="bt-cell ">Nenhuma</td><td class="bt-cell ">Baixa</td><td class="bt-cell ">Baixa</td><td class="bt-cell ">Média</td><td class="bt-cell ">Nenhuma</td><td class="bt-cell bt-cell--highlight">Baixa</td>
+      </tr>
+    
+      <tr class="bt-row">
+        <td class="bt-cell bt-cell--criterion">Relação</td>
+        <td class="bt-cell ">Dispersa</td><td class="bt-cell ">Transacional</td><td class="bt-cell ">Transacional</td><td class="bt-cell ">Transacional</td><td class="bt-cell ">Pessoal</td><td class="bt-cell bt-cell--highlight">Pessoal</td>
+      </tr>
+    
+      <tr class="bt-row">
+        <td class="bt-cell bt-cell--criterion">Alcance</td>
+        <td class="bt-cell ">Grupo</td><td class="bt-cell ">Feed</td><td class="bt-cell ">Nacional</td><td class="bt-cell ">Local</td><td class="bt-cell ">Círculo</td><td class="bt-cell bt-cell--highlight">Território</td>
+      </tr>
+    
+        </tbody>
+      </table>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">12/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-13" data-slide="13" data-nav="solucao">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Solução</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--cards3-bottom">
+      <h2>Nosso propósito</h2>
+      <p class="cards3-subtitle">O Elo nasce da convicção de que <strong>tecnologia deve fortalecer relações</strong>, não substituí-las. Queremos criar infraestrutura digital que potencialize o que já existe: a confiança construída no território.</p>
+      <div class="pillars-editorial pillars-editorial--colored">
+        
+      <div class="pillar pillar--green">
+        <div class="pillar__icon">◉</div>
+        <h3 class="pillar__title">SLOC</h3>
+        <p class="pillar__desc">Small, Local, Open, Connected (Manzini). Sistemas pequenos e locais, mas abertos e conectados em rede.</p>
+      </div>
+      <div class="pillar pillar--blue">
+        <div class="pillar__icon">◈</div>
+        <h3 class="pillar__title">Proximidade</h3>
+        <p class="pillar__desc">Não basta estar perto fisicamente. Proximidade é sentir-se próximo — oportunidades de encontro e cuidado.</p>
+      </div>
+      <div class="pillar pillar--purple">
+        <div class="pillar__icon">◇</div>
+        <h3 class="pillar__title">Serviços Relacionais</h3>
+        <p class="pillar__desc">A qualidade do serviço depende da qualidade da relação. Design habilita condições, não projeta a relação.</p>
+      </div>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">13/22</div>
+  </div>
+</section>
+
+<section class="slide slide--section-cover" id="slide-14" data-slide="14" data-nav="modelo">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Modelo</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content">
+      <span class="section-number-bg">03</span>
+      <div class="section-text">
+        <h2>Modelo</h2>
+        <p class="subtitle">Como o Elo se sustenta</p>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">14/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-15" data-slide="15" data-nav="modelo">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Modelo</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--rm-expanded">
+      <div class="rm-header">
+        <h2>Como o Elo se sustenta</h2>
+        <p class="rm-principle">Gratuito para sempre. Sustentável por escolha.</p>
+      </div>
+      <div class="rm-streams-expanded">
+    <div class="rm-stream-expanded">
+      <div class="rm-stream-expanded__header">
+        <div class="rm-stream-expanded__icon">📢</div>
+        <h3 class="rm-stream-expanded__title">Divulgação</h3>
+      </div>
+      <p class="rm-stream-expanded__desc">Prestadores que querem <strong>maior visibilidade</strong> podem pagar para destacar seu perfil na busca ou aparecer em categorias específicas. Modelo similar ao Google Ads: paga quem quer crescer mais rápido.</p>
+    </div>
+  
+    <div class="rm-stream-expanded">
+      <div class="rm-stream-expanded__header">
+        <div class="rm-stream-expanded__icon">💚</div>
+        <h3 class="rm-stream-expanded__title">Apoio da comunidade</h3>
+      </div>
+      <p class="rm-stream-expanded__desc">Pessoas e organizações que acreditam no projeto podem fazer <strong>doações recorrentes</strong>. Modelo inspirado na Wikipedia e projetos open-source: quem usa e valoriza, contribui voluntariamente.</p>
+    </div>
+  
+    <div class="rm-stream-expanded">
+      <div class="rm-stream-expanded__header">
+        <div class="rm-stream-expanded__icon">🤝</div>
+        <h3 class="rm-stream-expanded__title">Parcerias locais</h3>
+      </div>
+      <p class="rm-stream-expanded__desc">Associações comerciais, prefeituras e cooperativas podem <strong>apoiar a operação local</strong> em troca de acesso a dados agregados e fortalecimento do comércio na região.</p>
+    </div>
+  </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">15/22</div>
+  </div>
+</section>
+
+<section class="slide slide--section-cover" id="slide-16" data-slide="16" data-nav="mvp">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">MVP</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content">
+      <span class="section-number-bg">04</span>
+      <div class="section-text">
+        <h2>MVP</h2>
+        <p class="subtitle">Produto mínimo viável</p>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">16/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-17" data-slide="17" data-nav="mvp">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">MVP</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content">
+      <div class="persona">
+        <!-- Coluna 1: Foto + Sliders -->
+        <div class="persona__col persona__col--profile">
+          <div class="persona__photo">
+            <img src="assets/personas/seu-joao.jpg" alt="Seu João">
+          </div>
+          <h3 class="persona__name">Seu João</h3>
+          <span class="persona__role">Eletricista autônomo · 58 anos</span>
+          <blockquote class="persona__quote">"Meu trabalho fala por mim. Quem me conhece sabe que eu resolvo."</blockquote>
+
+          <div class="persona__traits">
+            
+      <div class="persona-trait">
+        <div class="persona-trait__labels">
+          <span class="persona-trait__left">Analógico</span>
+          <span class="persona-trait__right">Digital</span>
+        </div>
+        <div class="persona-trait__track">
+          <div class="persona-trait__fill" style="width: 15%"></div>
+          <div class="persona-trait__marker" style="left: 15%"></div>
+        </div>
+      </div>
+      <div class="persona-trait">
+        <div class="persona-trait__labels">
+          <span class="persona-trait__left">Informal</span>
+          <span class="persona-trait__right">Formal</span>
+        </div>
+        <div class="persona-trait__track">
+          <div class="persona-trait__fill" style="width: 10%"></div>
+          <div class="persona-trait__marker" style="left: 10%"></div>
+        </div>
+      </div>
+      <div class="persona-trait">
+        <div class="persona-trait__labels">
+          <span class="persona-trait__left">Reativo</span>
+          <span class="persona-trait__right">Proativo</span>
+        </div>
+        <div class="persona-trait__track">
+          <div class="persona-trait__fill" style="width: 15%"></div>
+          <div class="persona-trait__marker" style="left: 15%"></div>
+        </div>
+      </div>
+      <div class="persona-trait">
+        <div class="persona-trait__labels">
+          <span class="persona-trait__left">Local</span>
+          <span class="persona-trait__right">Expansão</span>
+        </div>
+        <div class="persona-trait__track">
+          <div class="persona-trait__fill" style="width: 10%"></div>
+          <div class="persona-trait__marker" style="left: 10%"></div>
+        </div>
+      </div>
+      <div class="persona-trait">
+        <div class="persona-trait__labels">
+          <span class="persona-trait__left">Genérico</span>
+          <span class="persona-trait__right">Especializado</span>
+        </div>
+        <div class="persona-trait__track">
+          <div class="persona-trait__fill" style="width: 70%"></div>
+          <div class="persona-trait__marker" style="left: 70%"></div>
+        </div>
+      </div>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Tags + Contexto + Motivações -->
+        <div class="persona__col persona__col--context">
+          
+          <div class="persona__tags">
+            <span class="persona__tag">Sem MEI</span><span class="persona__tag">42 anos de atuação</span><span class="persona__tag">Casado</span>
+          </div>
+          
+          <div class="persona__section">
+            <h4 class="persona__section-title">Contexto</h4>
+            <p class="persona__context">Trabalho com eletricidade desde os 16 anos — aprendi com meu pai. Nunca precisei de propaganda. Meu telefone toca porque alguém indicou.<span class="persona__break"></span>Não tenho empresa, não tenho nota fiscal. Trabalho na confiança. Meu preço é justo e meu trabalho é garantido.</p>
+          </div>
+
+          
+          <div class="persona__section">
+            <h4 class="persona__section-title">Motivações</h4>
+            <ul class="persona__list persona__list--motivations"><li>Manter a reputação que construí ao longo de 42 anos</li><li>Continuar trabalhando enquanto tiver saúde</li><li>Ser reconhecido pela qualidade, não pelo preço baixo</li></ul>
+          </div>
+        </div>
+
+        <!-- Coluna 3: Resultados + Frustrações + Oportunidades -->
+        <div class="persona__col persona__col--insights">
+          
+          <div class="persona__section">
+            <h4 class="persona__section-title">Resultados Desejados</h4>
+            <ul class="persona__list persona__list--goals"><li>Minimizar o esforço para alcançar novos clientes</li><li>Maximizar a visibilidade do histórico de trabalhos</li></ul>
+          </div>
+
+          
+          <div class="persona__section">
+            <h4 class="persona__section-title persona__section-title--negative">Frustrações</h4>
+            <ul class="persona__list persona__list--frustrations"><li>Não consigo alcançar quem está fora do meu círculo</li><li>Não tenho como mostrar os trabalhos que já fiz</li></ul>
+          </div>
+
+          
+          <div class="persona__section">
+            <h4 class="persona__section-title persona__section-title--positive">Oportunidades</h4>
+            <ul class="persona__list persona__list--opportunities"><li>Como dar visibilidade a prestadores que não dominam tecnologia?</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">17/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-18" data-slide="18" data-nav="mvp">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">MVP</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content">
+      <div class="persona">
+        <!-- Coluna 1: Foto + Sliders -->
+        <div class="persona__col persona__col--profile">
+          <div class="persona__photo">
+            <img src="assets/personas/celia.jpg" alt="Dona Célia">
+          </div>
+          <h3 class="persona__name">Dona Célia</h3>
+          <span class="persona__role">Aposentada · Ex-professora · 67 anos</span>
+          <blockquote class="persona__quote">"Gosto de ajudar. Quando alguém resolve um problema por causa de uma indicação minha, eu fico feliz."</blockquote>
+
+          <div class="persona__traits">
+            
+      <div class="persona-trait">
+        <div class="persona-trait__labels">
+          <span class="persona-trait__left">Analógico</span>
+          <span class="persona-trait__right">Digital</span>
+        </div>
+        <div class="persona-trait__track">
+          <div class="persona-trait__fill" style="width: 15%"></div>
+          <div class="persona-trait__marker" style="left: 15%"></div>
+        </div>
+      </div>
+      <div class="persona-trait">
+        <div class="persona-trait__labels">
+          <span class="persona-trait__left">Transacional</span>
+          <span class="persona-trait__right">Relacional</span>
+        </div>
+        <div class="persona-trait__track">
+          <div class="persona-trait__fill" style="width: 90%"></div>
+          <div class="persona-trait__marker" style="left: 90%"></div>
+        </div>
+      </div>
+      <div class="persona-trait">
+        <div class="persona-trait__labels">
+          <span class="persona-trait__left">Econômico</span>
+          <span class="persona-trait__right">Premium</span>
+        </div>
+        <div class="persona-trait__track">
+          <div class="persona-trait__fill" style="width: 85%"></div>
+          <div class="persona-trait__marker" style="left: 85%"></div>
+        </div>
+      </div>
+      <div class="persona-trait">
+        <div class="persona-trait__labels">
+          <span class="persona-trait__left">Flexível</span>
+          <span class="persona-trait__right">Exigente</span>
+        </div>
+        <div class="persona-trait__track">
+          <div class="persona-trait__fill" style="width: 20%"></div>
+          <div class="persona-trait__marker" style="left: 20%"></div>
+        </div>
+      </div>
+      <div class="persona-trait">
+        <div class="persona-trait__labels">
+          <span class="persona-trait__left">Variado</span>
+          <span class="persona-trait__right">Fiel</span>
+        </div>
+        <div class="persona-trait__track">
+          <div class="persona-trait__fill" style="width: 90%"></div>
+          <div class="persona-trait__marker" style="left: 90%"></div>
+        </div>
+      </div>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Tags + Contexto + Motivações -->
+        <div class="persona__col persona__col--context">
+          
+          <div class="persona__tags">
+            <span class="persona__tag">Viúva</span><span class="persona__tag">Multiplicadora</span><span class="persona__tag">40 anos no bairro</span>
+          </div>
+          
+          <div class="persona__section">
+            <h4 class="persona__section-title">Contexto</h4>
+            <p class="persona__context">Moro nessa casa há 40 anos. Vi esse bairro crescer. Conheço todo mundo — e todo mundo me conhece.<span class="persona__break"></span>Quando alguém precisa de prestador, vem perguntar pra mim. Só indico quem conheço e confio.</p>
+          </div>
+
+          
+          <div class="persona__section">
+            <h4 class="persona__section-title">Motivações</h4>
+            <ul class="persona__list persona__list--motivations"><li>Ajudar as pessoas ao redor e me sentir útil</li><li>Fazer parte da comunidade, sentir que pertenço</li></ul>
+          </div>
+        </div>
+
+        <!-- Coluna 3: Resultados + Frustrações + Oportunidades -->
+        <div class="persona__col persona__col--insights">
+          
+          <div class="persona__section">
+            <h4 class="persona__section-title">Resultados Desejados</h4>
+            <ul class="persona__list persona__list--goals"><li>Minimizar o esforço para lembrar e compartilhar indicações</li><li>Maximizar a confiança nas indicações que recebo e faço</li></ul>
+          </div>
+
+          
+          <div class="persona__section">
+            <h4 class="persona__section-title persona__section-title--negative">Frustrações</h4>
+            <ul class="persona__list persona__list--frustrations"><li>Minha memória já não é a mesma, esqueço nomes</li><li>Dificuldade com tecnologia — minha filha me ajuda</li></ul>
+          </div>
+
+          
+          <div class="persona__section">
+            <h4 class="persona__section-title persona__section-title--positive">Oportunidades</h4>
+            <ul class="persona__list persona__list--opportunities"><li>Como apoiar multiplicadores a organizar indicações?</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">18/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-19" data-slide="19" data-nav="mvp">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">MVP</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--user-stories-v2">
+      <h2>Funcionalidades mínimas</h2>
+      <div class="us-columns">
+      <div class="us-column us-column--green">
+        <div class="us-column__header">
+          <span class="us-column__icon">👷</span>
+          <span class="us-column__title">Prestador</span>
+        </div>
+        <div class="us-column__cards">
+      <div class="us-card-v2">
+        <p class="us-card-v2__story">Quero criar um <strong>perfil com minha história</strong>, para que clientes me conheçam antes de entrar em contato.</p>
+      </div>
+    
+      <div class="us-card-v2">
+        <p class="us-card-v2__story">Quero <strong>compartilhar meu perfil</strong> pelo WhatsApp, para alcançar pessoas fora do meu círculo.</p>
+      </div>
+    
+      <div class="us-card-v2">
+        <p class="us-card-v2__story">Quero <strong>pedir depoimentos</strong> após cada serviço, para construir minha reputação de forma organizada.</p>
+      </div>
+    </div>
+      </div>
+      <div class="us-column us-column--blue">
+        <div class="us-column__header">
+          <span class="us-column__icon">🏠</span>
+          <span class="us-column__title">Cliente</span>
+        </div>
+        <div class="us-column__cards">
+      <div class="us-card-v2">
+        <p class="us-card-v2__story">Quero receber um <strong>link com histórico do prestador</strong>, para decidir se confio antes de ligar.</p>
+      </div>
+    
+      <div class="us-card-v2">
+        <p class="us-card-v2__story">Quero <strong>entrar em contato direto</strong> pelo WhatsApp, sem intermediação ou taxas escondidas.</p>
+      </div>
+    
+      <div class="us-card-v2">
+        <p class="us-card-v2__story">Quero <strong>deixar um relato</strong> sobre o serviço, para ajudar outras pessoas a decidirem.</p>
+      </div>
+    </div>
+      </div></div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">19/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-20" data-slide="20" data-nav="mvp">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">MVP</span></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--prototype">
+      <div class="proto-layout">
+        <div class="proto-qr">
+          <h2>Protótipo interativo</h2>
+          <p class="proto-subtitle">Escaneie para experimentar</p>
+          <img src="assets/prototype/qrcode.png" alt="QR Code" class="proto-qr__image">
+          <p class="proto-url">umaugusto.github.io/pitch-elo/Prototipo</p>
+        </div>
+        <div class="proto-screens">
+          
+    <div class="proto-screen">
+      <div class="proto-screen__frame">
+        <img src="assets/prototype/screen3.jpg" alt="Descoberta" class="proto-screen__img">
+      </div>
+      <div class="proto-screen__info">
+        <span class="proto-screen__label">Descoberta</span>
+        <span class="proto-screen__desc">Busca e filtro por categoria</span>
+      </div>
+    </div>
+  
+    <div class="proto-screen">
+      <div class="proto-screen__frame">
+        <img src="assets/prototype/screen2.jpg" alt="Meu Perfil" class="proto-screen__img">
+      </div>
+      <div class="proto-screen__info">
+        <span class="proto-screen__label">Meu Perfil</span>
+        <span class="proto-screen__desc">Histórico e favoritos</span>
+      </div>
+    </div>
+  
+    <div class="proto-screen">
+      <div class="proto-screen__frame">
+        <img src="assets/prototype/screen1.jpg" alt="Avaliações" class="proto-screen__img">
+      </div>
+      <div class="proto-screen__info">
+        <span class="proto-screen__label">Avaliações</span>
+        <span class="proto-screen__desc">Relatos que você deixou</span>
+      </div>
+    </div>
+  
+        </div>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">20/22</div>
+  </div>
+</section>
+
+<section class="slide" id="slide-21" data-slide="21" data-nav="fechamento">
+  
+  <div class="slide-header">
+    <div class="slide-header-left">
+      <nav class="breadcrumb"><a href="#slide-2" class="breadcrumb-home" title="Sumário"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a></nav>
+    </div>
+    <div class="slide-header-right">
+      <nav class="nav-links"><a href="#slide-5">Problema</a><a href="#slide-9">Solução</a><a href="#slide-14">Modelo</a><a href="#slide-16">MVP</a></nav>
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="client-logo-img">
+    </div>
+  </div>
+  
+    <div class="slide-content slide-content--question question--has-bg" style="background-image: url('assets/santa-rita.jpg')">
+      <div class="question__overlay"></div>
+      <div class="question__content">
+        <p class="question__context">O convite</p>
+        <h2 class="question__text">E se cada cidade pudesse ter sua própria <strong>rede de confiança</strong>?</h2>
+      </div>
+    </div>
+  
+  <div class="slide-footer">
+    <div class="slide-footer-left">Elo · Antonio Augusto · antonio.aas@ufrj.br</div>
+    <div class="slide-footer-right">21/22</div>
+  </div>
+</section>
+
+<section class="slide slide--cover" id="slide-22" data-slide="22">
+  
+  
+    <div class="slide-content slide-content--cover">
+      <img src="assets/logo-coppe-ufrj.jpg" alt="Logo" class="cover-logo">
+      <h1>Obrigado</h1>
+      <p class="subtitle">antonio.aas@ufrj.br</p>
+      
+    </div>
+  
+</section>
+  </main>
+
+<!-- Botão de Apresentação -->
+<button id="btn-present" class="btn-present" title="Modo Apresentação (F5)">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+  </svg>
+  <span>Apresentar</span>
+</button>
+
+<!-- Controles do modo apresentação -->
+<div id="presentation-controls" class="presentation-controls hidden">
+  <button id="btn-prev" title="Anterior (←)">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+  <span id="slide-counter">1 / 22</span>
+  <button id="btn-next" title="Próximo (→)">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+  <button id="btn-exit" title="Sair (Esc)">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+</div>
+
+<style>
+/* ============================================
+   MODO APRESENTAÇÃO - Styles
+   ============================================ */
+
+/* Botão flutuante */
+.btn-present {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--color-charcoal);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+
+.btn-present:hover {
+  background: var(--color-gray-900);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-present svg {
+  flex-shrink: 0;
+}
+
+/* Controles do modo apresentação */
+.presentation-controls {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  z-index: 10001;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.presentation-controls:hover,
+.presentation-controls.visible {
+  opacity: 1;
+}
+
+.presentation-controls.hidden {
+  display: none;
+}
+
+.presentation-controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.presentation-controls button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+#slide-counter {
+  color: white;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Modo Apresentação Ativo */
+body.presentation-mode {
+  overflow: hidden !important;
+}
+
+body.presentation-mode .btn-present {
+  display: none;
+}
+
+body.presentation-mode .presentation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: black;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 !important;
+}
+
+body.presentation-mode .slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+body.presentation-mode .slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ajuste de aspect ratio */
+@media (min-aspect-ratio: 16/9) {
+  body.presentation-mode .slide {
+    width: calc(100vh * 16 / 9) !important;
+    height: 100vh !important;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  body.presentation-mode .slide {
+    width: 100vw !important;
+    height: calc(100vw * 9 / 16) !important;
+  }
+}
+
+/* Esconder em print */
+@media print {
+  .btn-present,
+  .presentation-controls {
+    display: none !important;
+  }
+}
+</style>
+
+<script>
+// ============================================
+// MODO APRESENTAÇÃO - JavaScript
+// ============================================
+
+(function() {
+  'use strict';
+
+  // Elementos
+  const btnPresent = document.getElementById('btn-present');
+  const controls = document.getElementById('presentation-controls');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const btnExit = document.getElementById('btn-exit');
+  const slideCounter = document.getElementById('slide-counter');
+  const slides = document.querySelectorAll('.slide');
+  const body = document.body;
+
+  // Estado
+  let currentSlide = 0;
+  let isPresenting = false;
+  let controlsTimeout;
+
+  // Funções
+  function getTotalSlides() {
+    return slides.length;
+  }
+
+  function updateSlideCounter() {
+    slideCounter.textContent = `${currentSlide + 1} / ${getTotalSlides()}`;
+  }
+
+  function showSlide(index) {
+    // Limites
+    if (index < 0) index = 0;
+    if (index >= getTotalSlides()) index = getTotalSlides() - 1;
+
+    // Remover classe active de todos
+    slides.forEach(slide => slide.classList.remove('active'));
+
+    // Adicionar classe active ao slide atual
+    slides[index].classList.add('active');
+    currentSlide = index;
+
+    updateSlideCounter();
+  }
+
+  function nextSlide() {
+    if (currentSlide < getTotalSlides() - 1) {
+      showSlide(currentSlide + 1);
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) {
+      showSlide(currentSlide - 1);
+    }
+  }
+
+  function enterFullscreen() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    }
+  }
+
+  function exitFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  }
+
+  function startPresentation() {
+    isPresenting = true;
+    body.classList.add('presentation-mode');
+    controls.classList.remove('hidden');
+    btnPresent.style.display = 'none';
+
+    // Detectar slide atual pela URL ou começar do início
+    const hash = window.location.hash;
+    if (hash) {
+      const slideId = hash.replace('#', '');
+      const slideIndex = Array.from(slides).findIndex(s => s.id === slideId);
+      if (slideIndex !== -1) {
+        currentSlide = slideIndex;
+      }
+    }
+
+    showSlide(currentSlide);
+    enterFullscreen();
+    showControls();
+  }
+
+  function stopPresentation() {
+    isPresenting = false;
+    body.classList.remove('presentation-mode');
+    controls.classList.add('hidden');
+    btnPresent.style.display = 'flex';
+
+    slides.forEach(slide => slide.classList.remove('active'));
+
+    if (document.fullscreenElement) {
+      exitFullscreen();
+    }
+
+    // Scroll para o slide atual
+    slides[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function showControls() {
+    controls.classList.add('visible');
+    clearTimeout(controlsTimeout);
+    controlsTimeout = setTimeout(() => {
+      controls.classList.remove('visible');
+    }, 0);
+  }
+
+  // Event Listeners
+  btnPresent.addEventListener('click', startPresentation);
+  btnNext.addEventListener('click', nextSlide);
+  btnPrev.addEventListener('click', prevSlide);
+  btnExit.addEventListener('click', stopPresentation);
+
+  // Teclado
+  document.addEventListener('keydown', function(e) {
+    // F5 para iniciar apresentação
+    if (e.key === 'F5' && !isPresenting) {
+      e.preventDefault();
+      startPresentation();
+      return;
+    }
+
+    if (!isPresenting) return;
+
+    showControls();
+
+    switch(e.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+      case ' ':
+      case 'PageDown':
+        e.preventDefault();
+        nextSlide();
+        break;
+      case 'ArrowLeft':
+      case 'ArrowUp':
+      case 'PageUp':
+        e.preventDefault();
+        prevSlide();
+        break;
+      case 'Escape':
+        e.preventDefault();
+        stopPresentation();
+        break;
+      case 'Home':
+        e.preventDefault();
+        showSlide(0);
+        break;
+      case 'End':
+        e.preventDefault();
+        showSlide(getTotalSlides() - 1);
+        break;
+    }
+  });
+
+  // Clique no slide para avançar
+  slides.forEach(slide => {
+    slide.addEventListener('click', function(e) {
+      if (!isPresenting) return;
+      
+      // Ignorar cliques em links
+      if (e.target.closest('a')) return;
+
+      // Clique na metade esquerda = voltar, direita = avançar
+      const rect = slide.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      
+      if (clickX < rect.width / 3) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+    });
+  });
+
+  // Mouse move para mostrar controles
+  document.addEventListener('mousemove', function() {
+    if (isPresenting) {
+      showControls();
+    }
+  });
+
+  // Detectar saída do fullscreen
+  document.addEventListener('fullscreenchange', function() {
+    if (!document.fullscreenElement && isPresenting) {
+      stopPresentation();
+    }
+  });
+
+  // Atalho visual
+  console.log('🎬 Modo Apresentação: Pressione F5 ou clique no botão "Apresentar"');
+})();
+</script>
+
+</body>
+</html>

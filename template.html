@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{project.name}}</title>
+
+  <!-- CSS System -->
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/themes.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layouts.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/fixes.css">
+
+  <style>
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+        width: 1280px;
+        height: 720px;
+        background: var(--color-white);
+      }
+      .slide {
+        margin: 0;
+        width: 1280px;
+        height: 720px;
+        page-break-after: always;
+      }
+      .presentation {
+        width: 1280px;
+        gap: 0;
+      }
+    }
+
+    @media screen {
+      body {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .presentation {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .slide {
+        width: 100% !important;
+        max-width: 1280px;
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="presentation">
+    <!-- SLIDES_PLACEHOLDER -->
+  </main>
+</body>
+</html>

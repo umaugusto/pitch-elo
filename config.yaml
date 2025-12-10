@@ -1,0 +1,22 @@
+# Configuração do Projeto
+project:
+  name: "Elo"
+  author: "Antonio Augusto"
+  email: "antonio.aas@ufrj.br"
+  logo: "assets/logo-coppe-ufrj.jpg"
+  theme: "coppe"  # Vinho institucional COPPE/UFRJ
+
+# Navegação (estrutura hierárquica para breadcrumbs)
+nav:
+  problema:
+    label: "Problema"
+    slide: 5
+  solucao:
+    label: "Solução"
+    slide: 9
+  modelo:
+    label: "Modelo"
+    slide: 14
+  mvp:
+    label: "MVP"
+    slide: 16

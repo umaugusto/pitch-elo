@@ -1,0 +1,466 @@
+# Apresentação - Pitch Elo
+# Disciplina COP725 - Design de Negócios (UFRJ)
+# Data: 17/12/2025 | Duração: 5 minutos
+# Branch: refactor/reorganizar-pitch
+
+slides:
+  # ============================================
+  # BLOCO 1: ABERTURA (2 slides)
+  # ============================================
+  
+  # SLIDE 1: Capa
+  - type: cover
+    title: "Elo"
+    subtitle: "O prestador como protagonista"
+    date: "Dezembro 2025"
+
+  # SLIDE 2: Apresentação - Santa Rita do Sapucaí
+  - type: text-image
+    nav: "contexto"
+    title: "De onde eu venho"
+    content: |
+      Sou Antonio Augusto, designer de serviços e mestrando na COPPE/UFRJ.
+      
+      Esta é **Santa Rita do Sapucaí** — uma cidade de 45 mil habitantes no Sul de Minas, conhecida como o **Vale da Eletrônica** brasileiro.
+      
+      Aqui nasceram mais de 150 empresas de tecnologia. A cidade é sede do **Hacktown**, um festival inspirado no South by Southwest.
+      
+      Incubadoras, startups, escolas técnicas. Uma cidade com vocação para tecnologia.
+    image: "assets/santa-rita.png"
+    imageCaption: "Santa Rita do Sapucaí, MG"
+
+  # SLIDE 3: Cidade pequena e seus profissionais
+  - type: text-image
+    nav: "contexto"
+    title: "Mas também é cidade pequena"
+    content: |
+      Santa Rita também é a terra do Seu João, eletricista há 42 anos. Da Dona Maria, que faz o melhor bolo da cidade. Do Carlos, que conserta qualquer coisa.
+      
+      Profissionais que construíram reputação ao longo de décadas. Que vivem de indicação — o telefone toca porque alguém recomendou.
+      
+      **Mas esse modelo tem limites.** O Seu João não consegue alcançar quem está fora do seu círculo. Não tem tempo nem interesse em "fazer propaganda". Foca no que sabe fazer: o serviço.
+      
+      Resultado? **Invisível para quem não o conhece.**
+    image: "assets/personas/seu-joao.png"
+    imageStyle: portrait
+    imageCaption: "Seu João, eletricista"
+
+  # SLIDE 4: O Paradoxo
+  - type: text-image
+    nav: "contexto"
+    title: "O paradoxo"
+    content: |
+      Uma cidade que produz tecnologia de ponta para o mundo — mas onde encontrar um eletricista ainda depende de perguntar no grupo do WhatsApp.
+      
+      Santa Rita é um **caso fora da curva**: polo tecnológico, população conectada, cultura de inovação. E ainda assim, os serviços locais continuam invisíveis.
+      
+      **Se isso acontece aqui, imagine nas outras 5.500 cidades pequenas do Brasil.**
+      
+      O problema não é falta de bons profissionais. É falta de visibilidade organizada.
+    image: "assets/people-search.svg"
+
+  # ============================================
+  # BLOCO 2: PROBLEMA (4 slides)
+  # ============================================
+
+  # SLIDE 5: Problema (Seção)
+  - type: section
+    nav: "problema"
+    number: "01"
+    title: "O Problema"
+    subtitle: "Invisibilidade e desconfiança"
+
+  # SLIDE 6: Problema (Dois lados com dados)
+  - type: problem-split
+    nav: "problema"
+    title: "Dois lados do mesmo problema"
+    sides:
+      - icon: "👷"
+        title: "Quem oferece o serviço"
+        stats:
+          - value: "54%"
+            label: "informais"
+          - value: "38%"
+            label: "não veem necessidade de formalizar"
+        items:
+          - "Foco total na entrega — não sobra tempo para se promover"
+          - "Não vê vantagem em plataformas que cobram taxas ou exigem CNPJ"
+          - "Boca-a-boca funcionava, mas a digitalização mudou o jogo"
+          - "Invisível para quem está fora do círculo de indicações"
+      - icon: "🏠"
+        title: "Quem precisa do serviço"
+        stats:
+          - value: "?"
+            label: "a quem chamar"
+          - value: "0"
+            label: "plataformas locais"
+        items:
+          - "Só encontra prestadores dentro do próprio círculo social"
+          - "Depende da sorte de alguém responder no grupo do WhatsApp"
+          - "Plataformas nacionais não chegam em cidades pequenas"
+          - "Estrelas e rankings não geram a confiança que precisa"
+
+  # SLIDE 7: Dados GEM - Big Numbers
+  - type: data-highlight
+    nav: "problema"
+    title: "O tamanho do problema"
+    metrics:
+      - value: "42M"
+        label: "empreendedores no Brasil"
+        context: "30% da população adulta"
+      - value: "54%"
+        label: "são informais"
+        context: "~23 milhões sem CNPJ"
+      - value: "38%"
+        label: "não veem necessidade"
+        context: "de formalizar"
+      - value: "74%"
+        label: "autônomos informais"
+        context: "19M de 25,5M"
+      - value: "90%"
+        label: "querem mais tecnologia"
+        context: "para vender serviços"
+      - value: "5.500"
+        label: "cidades pequenas"
+        context: "sem plataformas locais"
+    insight: "O problema não é falta de profissionais competentes. É que a **digitalização criou uma lacuna**: quem não está online, não existe. Mas plataformas de escala não resolvem — cidades pequenas precisam de soluções que valorizem **proximidade e pessoalidade**."
+    source: "GEM Brasil 2023 + IBGE PNAD 2024"
+
+  # SLIDE 8: Pergunta Desafio
+  - type: question
+    nav: "problema"
+    context: "O desafio"
+    question: "Como podemos ressignificar a **proximidade** — de limitação territorial — em **recurso projetual** para diferenciação?"
+    background: "assets/santa-rita.png"
+
+  # ============================================
+  # BLOCO 3: SOLUÇÃO (5 slides)
+  # ============================================
+
+  # SLIDE 9: Solução (Seção)
+  - type: section
+    nav: "solucao"
+    number: "02"
+    title: "A Solução"
+    subtitle: "Visibilidade baseada em pessoalidade"
+
+  # SLIDE 10: Apresentação da Solução
+  - type: solution-hero
+    nav: "solucao"
+    title: "O Elo"
+    subtitle: "Visibilidade baseada em pessoalidade"
+    sections:
+      - title: "O que é"
+        text: "Uma plataforma onde prestadores criam um **perfil pessoal** — com foto, história e depoimentos de clientes. Um portfólio vivo que o prestador compartilha pelo WhatsApp."
+      - title: "Como funciona"
+        text: "Perfil criado em minutos. Após cada serviço, o cliente deixa um **relato escrito** sobre a experiência. Contato direto, sem intermediação."
+      - title: "Por que diferente"
+        text: "Apps tradicionais tratam prestadores como catálogo. O Elo inverte: **o prestador é protagonista**. Proximidade como vantagem, não escala."
+    is: "Portfólio pessoal compartilhável. Vitrine de confiança construída por histórias reais. Ferramenta que amplia o alcance do boca-a-boca."
+    isNot: "Marketplace que compara prestadores por preço. Intermediador de pagamentos ou transações. Plataforma que cobra comissão ou taxa."
+    highlight:
+      label: "Princípio central"
+      value: "Gratuito — 100% do valor fica com o prestador"
+
+  # SLIDE 11: Como funciona (Dual Track)
+  - type: dual-track
+    nav: "solucao"
+    title: "Como funciona"
+    centerLabels:
+      - "visibilidade"
+      - "confiança"
+      - "encontro"
+      - "reputação"
+    tracks:
+      - icon: "👷"
+        title: "Prestador"
+        steps:
+          - title: "Cria perfil"
+            text: "Foto, história, serviços"
+          - title: "Compartilha"
+            text: "Envia link pelo WhatsApp"
+          - title: "Recebe contato"
+            text: "Cliente chega informado"
+          - title: "Pede depoimento"
+            text: "Constrói reputação"
+      - icon: "🏠"
+        title: "Cliente"
+        steps:
+          - title: "Recebe indicação"
+            text: "Link de alguém confiável"
+          - title: "Conhece antes"
+            text: "Vê história e depoimentos"
+          - title: "Entra em contato"
+            text: "Direto, sem intermediário"
+          - title: "Deixa depoimento"
+            text: "Alimenta o ciclo"
+
+  # SLIDE 12: Benchmarking
+  - type: benchmark-table
+    nav: "solucao/diferencial"
+    title: "Posicionamento"
+    subtitle: "Como o Elo se diferencia das alternativas existentes"
+    competitors:
+      - name: "Grupos WhatsApp"
+      - name: "Facebook"
+      - name: "OLX"
+      - name: "Google"
+      - name: "Indicação"
+      - name: "Elo"
+        highlight: true
+    criteria:
+      - name: "Modelo"
+        values:
+          - "Grátis"
+          - "Grátis"
+          - "Anúncio pago"
+          - "Grátis"
+          - "Grátis"
+          - "Grátis"
+      - name: "Protagonista"
+        values:
+          - "Quem posta"
+          - "Algoritmo"
+          - "Anunciante"
+          - "Busca"
+          - "Quem indica"
+          - "Prestador"
+      - name: "Reputação"
+        values:
+          - "Nenhuma"
+          - "Curtidas"
+          - "Nenhuma"
+          - "Avaliações"
+          - "Verbal"
+          - "Depoimentos"
+      - name: "Barreira"
+        values:
+          - "Nenhuma"
+          - "Baixa"
+          - "Baixa"
+          - "Média"
+          - "Nenhuma"
+          - "Baixa"
+      - name: "Relação"
+        values:
+          - "Dispersa"
+          - "Transacional"
+          - "Transacional"
+          - "Transacional"
+          - "Pessoal"
+          - "Pessoal"
+      - name: "Alcance"
+        values:
+          - "Grupo"
+          - "Feed"
+          - "Nacional"
+          - "Local"
+          - "Círculo"
+          - "Território"
+
+  # SLIDE 13: Nosso Propósito
+  - type: cards-3
+    nav: "solucao"
+    title: "Nosso propósito"
+    subtitle: "O Elo nasce da convicção de que **tecnologia deve fortalecer relações**, não substituí-las. Queremos criar infraestrutura digital que potencialize o que já existe: a confiança construída no território."
+    colored: true
+    bottomAlign: true
+    cards:
+      - icon: "◉"
+        title: "SLOC"
+        content: "Small, Local, Open, Connected (Manzini). Sistemas pequenos e locais, mas abertos e conectados em rede."
+      - icon: "◈"
+        title: "Proximidade"
+        content: "Não basta estar perto fisicamente. Proximidade é sentir-se próximo — oportunidades de encontro e cuidado."
+      - icon: "◇"
+        title: "Serviços Relacionais"
+        content: "A qualidade do serviço depende da qualidade da relação. Design habilita condições, não projeta a relação."
+
+  # ============================================
+  # BLOCO 4: MODELO DE NEGÓCIO (2 slides)
+  # ============================================
+
+  # SLIDE 14: Modelo (Seção)
+  - type: section
+    nav: "modelo"
+    number: "03"
+    title: "Modelo"
+    subtitle: "Como o Elo se sustenta"
+
+  # SLIDE 15: Sustentabilidade
+  - type: revenue-model
+    nav: "modelo"
+    title: "Como o Elo se sustenta"
+    principle: "Gratuito para sempre. Sustentável por escolha."
+    streams:
+      - icon: "📢"
+        title: "Divulgação"
+        desc: "Prestadores que querem **maior visibilidade** podem pagar para destacar seu perfil na busca ou aparecer em categorias específicas. Modelo similar ao Google Ads: paga quem quer crescer mais rápido."
+      - icon: "💚"
+        title: "Apoio da comunidade"
+        desc: "Pessoas e organizações que acreditam no projeto podem fazer **doações recorrentes**. Modelo inspirado na Wikipedia e projetos open-source: quem usa e valoriza, contribui voluntariamente."
+      - icon: "🤝"
+        title: "Parcerias locais"
+        desc: "Associações comerciais, prefeituras e cooperativas podem **apoiar a operação local** em troca de acesso a dados agregados e fortalecimento do comércio na região."
+
+  # ============================================
+  # BLOCO 5: MVP E FECHAMENTO
+  # ============================================
+
+  # SLIDE 16: MVP (Seção)
+  - type: section
+    nav: "mvp"
+    number: "04"
+    title: "MVP"
+    subtitle: "Produto mínimo viável"
+
+  # SLIDE 17: Persona - Seu João (Prestador)
+  - type: persona
+    nav: "mvp"
+    name: "Seu João"
+    role: "Eletricista autônomo · 58 anos"
+    photo: "assets/personas/seu-joao.png"
+    quote: "Meu trabalho fala por mim. Quem me conhece sabe que eu resolvo."
+    tags:
+      - "Sem MEI"
+      - "42 anos de atuação"
+      - "Casado"
+    traits:
+      - left: "Analógico"
+        right: "Digital"
+        value: 15
+      - left: "Informal"
+        right: "Formal"
+        value: 10
+      - left: "Reativo"
+        right: "Proativo"
+        value: 15
+      - left: "Local"
+        right: "Expansão"
+        value: 10
+      - left: "Genérico"
+        right: "Especializado"
+        value: 70
+    context: "Trabalho com eletricidade desde os 16 anos — aprendi com meu pai. Nunca precisei de propaganda. Meu telefone toca porque alguém indicou.||Não tenho empresa, não tenho nota fiscal. Trabalho na confiança. Meu preço é justo e meu trabalho é garantido."
+    motivations:
+      - "Manter a reputação que construí ao longo de 42 anos"
+      - "Continuar trabalhando enquanto tiver saúde"
+      - "Ser reconhecido pela qualidade, não pelo preço baixo"
+    goals:
+      - "Minimizar o esforço para alcançar novos clientes"
+      - "Maximizar a visibilidade do histórico de trabalhos"
+    frustrations:
+      - "Não consigo alcançar quem está fora do meu círculo"
+      - "Não tenho como mostrar os trabalhos que já fiz"
+    opportunities:
+      - "Como dar visibilidade a prestadores que não dominam tecnologia?"
+
+  # SLIDE 18: Persona - Dona Célia (Multiplicadora)
+  - type: persona
+    nav: "mvp"
+    name: "Dona Célia"
+    role: "Aposentada · Ex-professora · 67 anos"
+    photo: "assets/personas/celia.png"
+    quote: "Gosto de ajudar. Quando alguém resolve um problema por causa de uma indicação minha, eu fico feliz."
+    tags:
+      - "Viúva"
+      - "Multiplicadora"
+      - "40 anos no bairro"
+    traits:
+      - left: "Analógico"
+        right: "Digital"
+        value: 15
+      - left: "Transacional"
+        right: "Relacional"
+        value: 90
+      - left: "Econômico"
+        right: "Premium"
+        value: 85
+      - left: "Flexível"
+        right: "Exigente"
+        value: 20
+      - left: "Variado"
+        right: "Fiel"
+        value: 90
+    context: "Moro nessa casa há 40 anos. Vi esse bairro crescer. Conheço todo mundo — e todo mundo me conhece.||Quando alguém precisa de prestador, vem perguntar pra mim. Só indico quem conheço e confio."
+    motivations:
+      - "Ajudar as pessoas ao redor e me sentir útil"
+      - "Fazer parte da comunidade, sentir que pertenço"
+    goals:
+      - "Minimizar o esforço para lembrar e compartilhar indicações"
+      - "Maximizar a confiança nas indicações que recebo e faço"
+    frustrations:
+      - "Minha memória já não é a mesma, esqueço nomes"
+      - "Dificuldade com tecnologia — minha filha me ajuda"
+    opportunities:
+      - "Como apoiar multiplicadores a organizar indicações?"
+
+  # SLIDE 19: Funcionalidades mínimas (User Stories V2)
+  - type: user-stories-v2
+    nav: "mvp"
+    title: "Funcionalidades mínimas"
+    groups:
+      - icon: "👷"
+        title: "Prestador"
+        color: "green"
+        stories:
+          - "Quero criar um **perfil com minha história**, para que clientes me conheçam antes de entrar em contato."
+          - "Quero **compartilhar meu perfil** pelo WhatsApp, para alcançar pessoas fora do meu círculo."
+          - "Quero **pedir depoimentos** após cada serviço, para construir minha reputação de forma organizada."
+      - icon: "🏠"
+        title: "Cliente"
+        color: "blue"
+        stories:
+          - "Quero receber um **link com histórico do prestador**, para decidir se confio antes de ligar."
+          - "Quero **entrar em contato direto** pelo WhatsApp, sem intermediação ou taxas escondidas."
+          - "Quero **deixar um relato** sobre o serviço, para ajudar outras pessoas a decidirem."
+
+  # SLIDE 20: Protótipo MVP
+  - type: prototype-showcase
+    nav: "mvp"
+    title: "Protótipo interativo"
+    subtitle: "Escaneie para experimentar"
+    qrcode: "assets/prototype/qrcode.png"
+    url: "umaugusto.github.io/pitch-elo/Prototipo"
+    screens:
+      - image: "assets/prototype/screen3.jpg"
+        label: "Descoberta"
+        description: "Busca e filtro por categoria"
+      - image: "assets/prototype/screen2.jpg"
+        label: "Meu Perfil"
+        description: "Histórico e favoritos"
+      - image: "assets/prototype/screen1.jpg"
+        label: "Avaliações"
+        description: "Relatos que você deixou"
+
+  # SLIDE 20: CTA Inspiracional
+  - type: question
+    nav: "fechamento"
+    context: "O convite"
+    question: "E se cada cidade pudesse ter sua própria **rede de confiança**?"
+    background: "assets/santa-rita.png"
+
+  # SLIDE 21: Encerramento
+  - type: cover
+    title: "Obrigado"
+    subtitle: "antonio.aas@ufrj.br"
+    date: ""
+
+# ============================================
+# PERSONAS OCULTAS (Mariana e Ricardo)
+# Mantidas para referência e possível uso futuro
+# ============================================
+
+# - type: persona
+#   name: "Mariana"
+#   role: "Personal Organizer · 28 anos"
+#   photo: "assets/personas/Mariana.png"
+#   quote: "Eu não limpo casa. Eu transformo ambientes."
+#   tags: ["MEI", "4 anos de atuação", "Instagram profissional"]
+
+# - type: persona
+#   name: "Ricardo"
+#   role: "Gerente de Projetos · 42 anos"
+#   photo: "assets/personas/Ricardo.png"
+#   quote: "Me mostra que você sabe o que faz e eu pago o que você pedir."
+#   tags: ["CLT", "MBA", "Trabalho remoto"]

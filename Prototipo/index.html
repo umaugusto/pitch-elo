@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Elo - Serviços de Confiança</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ============================================
+       CSS VARIABLES - Design System
+       ============================================ */
+    :root {
+      --color-primary: #38A169;
+      --color-primary-light: #68D391;
+      --color-primary-dark: #276749;
+      --color-primary-bg: #F0FFF4;
+      --color-white: #FFFFFF;
+      --color-gray-50: #F7FAFC;
+      --color-gray-100: #EDF2F7;
+      --color-gray-200: #E2E8F0;
+      --color-gray-300: #CBD5E0;
+      --color-gray-500: #718096;
+      --color-gray-600: #4A5568;
+      --color-gray-700: #2D3748;
+      --color-gray-900: #1A202C;
+      --color-warning: #ED8936;
+      --color-blue: #4299E1;
+      --color-purple: #9F7AEA;
+      --color-pink: #ED64A6;
+      --color-functional: #4299E1;
+      --color-social: #9F7AEA;
+      --color-emotional: #ED64A6;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 48px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+      --header-height: 56px;
+      --bottom-nav-height: 64px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-gray-50);
+      color: var(--color-gray-700);
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .app {
+      max-width: 430px;
+      margin: 0 auto;
+      background: var(--color-white);
+      min-height: 100vh;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      height: var(--header-height);
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--space-4);
+      z-index: 100;
+    }
+    .header__logo {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    .header__back {
+      display: none;
+      align-items: center;
+      gap: var(--space-2);
+      background: none;
+      border: none;
+      color: var(--color-gray-600);
+      font-size: 14px;
+      font-family: var(--font-body);
+      cursor: pointer;
+      padding: var(--space-2);
+      margin-left: calc(-1 * var(--space-2));
+    }
+    .header__back svg { width: 20px; height: 20px; }
+    .header--profile .header__logo,
+    .header--my-profile .header__logo { display: none; }
+    .header--profile .header__back,
+    .header--my-profile .header__back { display: flex; }
+    .header__location {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-size: 13px;
+      color: var(--color-gray-500);
+    }
+    .header__location svg {
+      width: 14px;
+      height: 14px;
+      color: var(--color-primary);
+    }
+
+    /* SCREENS */
+    .screen {
+      display: none;
+      padding-top: var(--header-height);
+      padding-bottom: var(--bottom-nav-height);
+      min-height: 100vh;
+    }
+    .screen--active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* HOME SCREEN */
+    .search-section {
+      padding: var(--space-4);
+      background: linear-gradient(135deg, var(--color-primary-bg) 0%, var(--color-white) 100%);
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-full);
+      padding: var(--space-3) var(--space-4);
+      box-shadow: var(--shadow-sm);
+    }
+    .search-box svg { width: 20px; height: 20px; color: var(--color-gray-400); flex-shrink: 0; }
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      font-family: var(--font-body);
+      color: var(--color-gray-700);
+    }
+    .search-box input::placeholder { color: var(--color-gray-400); }
+
+    .categories { padding: var(--space-4); }
+    .categories__title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: var(--space-3);
+    }
+    .categories__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
+    }
+    .category-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3);
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-100);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .category-btn:hover, .category-btn--active {
+      border-color: var(--color-primary);
+      background: var(--color-primary-bg);
+    }
+    .category-btn__icon { font-size: 24px; }
+    .category-btn__label { font-size: 11px; color: var(--color-gray-600); text-align: center; }
+
+    .providers-section { padding: var(--space-4); }
+    .providers-section__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-4);
+    }
+    .providers-section__title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--color-gray-900);
+    }
+    .providers-section__count { font-size: 13px; color: var(--color-gray-500); }
+    .providers-list { display: flex; flex-direction: column; gap: var(--space-3); }
+
+    .provider-card {
+      display: flex;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-100);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .provider-card:hover {
+      border-color: var(--color-primary-light);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .provider-card__photo {
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .provider-card__info { flex: 1; min-width: 0; }
+    .provider-card__name { font-size: 16px; font-weight: 700; color: var(--color-gray-900); margin-bottom: 2px; }
+    .provider-card__specialty { font-size: 13px; color: var(--color-primary-dark); font-weight: 600; margin-bottom: var(--space-2); }
+    .provider-card__meta { display: flex; align-items: center; gap: var(--space-3); font-size: 12px; color: var(--color-gray-500); }
+    .provider-card__meta-item { display: flex; align-items: center; gap: 4px; }
+    .provider-card__meta-item svg { width: 14px; height: 14px; }
+    .provider-card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      background: var(--color-primary-bg);
+      color: var(--color-primary-dark);
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: var(--space-2);
+    }
+
+
+    /* PROFILE SCREEN */
+    .profile-hero {
+      position: relative;
+      padding: var(--space-5) var(--space-4);
+      background: linear-gradient(180deg, var(--color-primary-bg) 0%, var(--color-white) 100%);
+      text-align: center;
+    }
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      border: 4px solid var(--color-white);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--space-4);
+    }
+    .profile-name { font-family: var(--font-display); font-size: 26px; color: var(--color-gray-900); margin-bottom: var(--space-1); }
+    .profile-specialty { font-size: 16px; color: var(--color-primary); font-weight: 600; margin-bottom: var(--space-3); }
+    .profile-badges { display: flex; justify-content: center; gap: var(--space-2); flex-wrap: wrap; }
+    .profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      color: var(--color-gray-600);
+    }
+    .profile-badge svg { width: 14px; height: 14px; }
+    .profile-badge--highlight {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .profile-section {
+      padding: var(--space-4);
+      border-bottom: 1px solid var(--color-gray-100);
+    }
+    .profile-section__title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: var(--space-3);
+    }
+    .profile-story { font-size: 15px; line-height: 1.7; color: var(--color-gray-600); }
+    .profile-story p { margin-bottom: var(--space-3); }
+    .profile-story p:last-child { margin-bottom: 0; }
+
+    .services-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .service-tag {
+      padding: 6px 12px;
+      background: var(--color-gray-100);
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      color: var(--color-gray-700);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4); }
+    .testimonials-count { font-size: 13px; color: var(--color-gray-500); }
+    .testimonial-card {
+      background: var(--color-gray-50);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      margin-bottom: var(--space-3);
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 8px;
+      left: 12px;
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--color-primary-light);
+      opacity: 0.4;
+      line-height: 1;
+    }
+    .testimonial-text { font-size: 14px; line-height: 1.6; color: var(--color-gray-600); margin-bottom: var(--space-3); padding-left: var(--space-5); }
+    .testimonial-author { display: flex; align-items: center; gap: var(--space-2); padding-left: var(--space-5); }
+    .testimonial-author__avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      background: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .testimonial-author__info { flex: 1; }
+    .testimonial-author__name { font-size: 13px; font-weight: 600; color: var(--color-gray-700); }
+    .testimonial-author__date { font-size: 11px; color: var(--color-gray-400); }
+
+    .testimonial-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-2); padding-left: var(--space-5); }
+    .testimonial-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .testimonial-tag--functional { background: rgba(66, 153, 225, 0.1); color: var(--color-functional); }
+    .testimonial-tag--social { background: rgba(159, 122, 234, 0.1); color: var(--color-social); }
+    .testimonial-tag--emotional { background: rgba(237, 100, 166, 0.1); color: var(--color-emotional); }
+
+    .btn-add-testimonial {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      width: 100%;
+      padding: var(--space-3);
+      background: var(--color-white);
+      border: 2px dashed var(--color-gray-300);
+      border-radius: var(--radius-md);
+      color: var(--color-gray-500);
+      font-size: 14px;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-add-testimonial:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-primary-bg);
+    }
+    .btn-add-testimonial svg { width: 18px; height: 18px; }
+
+
+    /* WHATSAPP BUTTON */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: calc(var(--bottom-nav-height) + 16px);
+      right: 16px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: var(--radius-full);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      z-index: 90;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
+    .whatsapp-btn svg { width: 28px; height: 28px; fill: white; }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 200;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .modal-overlay--active { display: flex; animation: fadeIn 0.2s ease; }
+    .modal {
+      width: 100%;
+      max-width: 430px;
+      background: var(--color-white);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .modal__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4);
+      border-bottom: 1px solid var(--color-gray-100);
+      position: sticky;
+      top: 0;
+      background: var(--color-white);
+    }
+    .modal__title { font-family: var(--font-display); font-size: 20px; color: var(--color-gray-900); }
+    .modal__close {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: var(--color-gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .modal__close:hover { background: var(--color-gray-200); }
+    .modal__close svg { width: 18px; height: 18px; color: var(--color-gray-600); }
+    .modal__body { padding: var(--space-4); }
+
+    /* FORM */
+    .form-group { margin-bottom: var(--space-4); }
+    .form-label { display: block; font-size: 14px; font-weight: 600; color: var(--color-gray-700); margin-bottom: var(--space-2); }
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: var(--space-3);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-family: var(--font-body);
+      color: var(--color-gray-700);
+      transition: border-color 0.2s ease;
+    }
+    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--color-primary); }
+    .form-textarea { min-height: 100px; resize: vertical; }
+    .form-hint { font-size: 12px; color: var(--color-gray-400); margin-top: var(--space-1); }
+
+    /* User info display in modal */
+    .user-info-display {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      background: var(--color-gray-50);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-4);
+    }
+    .user-info-display__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+    }
+    .user-info-display__name { font-weight: 600; color: var(--color-gray-700); }
+    .user-info-display__label { font-size: 12px; color: var(--color-gray-500); }
+
+    /* RATING CHIPS */
+    .rating-section { margin-bottom: var(--space-5); }
+    .rating-category { margin-bottom: var(--space-4); }
+    .rating-category__header { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2); }
+    .rating-category__icon {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    .rating-category__icon--functional { background: rgba(66, 153, 225, 0.15); color: var(--color-functional); }
+    .rating-category__icon--social { background: rgba(159, 122, 234, 0.15); color: var(--color-social); }
+    .rating-category__icon--emotional { background: rgba(237, 100, 166, 0.15); color: var(--color-emotional); }
+    .rating-category__title { font-size: 13px; font-weight: 600; color: var(--color-gray-700); }
+    .rating-category__subtitle { font-size: 11px; color: var(--color-gray-400); margin-left: auto; }
+
+    .rating-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .rating-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: var(--color-gray-50);
+      border: 1.5px solid var(--color-gray-200);
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-gray-600);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .rating-chip:hover { border-color: var(--color-gray-300); background: var(--color-gray-100); }
+    .rating-chip--selected { background: var(--color-white); border-width: 2px; }
+    .rating-chip--functional.rating-chip--selected { border-color: var(--color-functional); color: var(--color-functional); background: rgba(66, 153, 225, 0.08); }
+    .rating-chip--social.rating-chip--selected { border-color: var(--color-social); color: var(--color-social); background: rgba(159, 122, 234, 0.08); }
+    .rating-chip--emotional.rating-chip--selected { border-color: var(--color-emotional); color: var(--color-emotional); background: rgba(237, 100, 166, 0.08); }
+    .rating-chip__check { width: 16px; height: 16px; display: none; }
+    .rating-chip--selected .rating-chip__check { display: block; }
+
+    .btn-submit {
+      width: 100%;
+      padding: var(--space-4);
+      background: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 16px;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .btn-submit:hover { background: var(--color-primary-dark); }
+
+    .success-message { text-align: center; padding: var(--space-6) var(--space-4); }
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--color-primary-bg);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-4);
+    }
+    .success-icon svg { width: 32px; height: 32px; color: var(--color-primary); }
+    .success-message h3 { font-family: var(--font-display); font-size: 22px; color: var(--color-gray-900); margin-bottom: var(--space-2); }
+    .success-message p { color: var(--color-gray-500); font-size: 14px; }
+
+
+    /* MY PROFILE SCREEN (Usuário Logado) */
+    .my-profile-hero {
+      padding: var(--space-6) var(--space-4);
+      background: linear-gradient(180deg, var(--color-primary-bg) 0%, var(--color-white) 100%);
+      text-align: center;
+    }
+    .my-profile-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      border: 4px solid var(--color-white);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--space-3);
+    }
+    .my-profile-name { font-family: var(--font-display); font-size: 24px; color: var(--color-gray-900); margin-bottom: var(--space-1); }
+    .my-profile-location { font-size: 14px; color: var(--color-gray-500); display: flex; align-items: center; justify-content: center; gap: var(--space-1); }
+    .my-profile-location svg { width: 16px; height: 16px; color: var(--color-primary); }
+
+    .my-profile-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+      padding: var(--space-4);
+      border-bottom: 1px solid var(--color-gray-100);
+    }
+    .my-profile-stat { text-align: center; }
+    .my-profile-stat__number { font-size: 24px; font-weight: 700; color: var(--color-primary); }
+    .my-profile-stat__label { font-size: 12px; color: var(--color-gray-500); }
+
+    .my-profile-menu { padding: var(--space-2) 0; }
+    .my-profile-menu-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      border-bottom: 1px solid var(--color-gray-100);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .my-profile-menu-item:hover { background: var(--color-gray-50); }
+    .my-profile-menu-item__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--color-gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .my-profile-menu-item__icon--green { background: var(--color-primary-bg); }
+    .my-profile-menu-item__text { flex: 1; }
+    .my-profile-menu-item__title { font-weight: 600; color: var(--color-gray-700); margin-bottom: 2px; }
+    .my-profile-menu-item__subtitle { font-size: 13px; color: var(--color-gray-500); }
+    .my-profile-menu-item__arrow { color: var(--color-gray-400); }
+    .my-profile-menu-item__arrow svg { width: 20px; height: 20px; }
+
+    /* BOTTOM NAVIGATION - 3 itens */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      height: var(--bottom-nav-height);
+      background: var(--color-white);
+      border-top: 1px solid var(--color-gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      z-index: 100;
+    }
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: var(--space-2);
+      background: none;
+      border: none;
+      color: var(--color-gray-400);
+      font-size: 11px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      min-width: 80px;
+    }
+    .nav-item svg { width: 24px; height: 24px; }
+    .nav-item--active { color: var(--color-primary); }
+
+    .hidden { display: none !important; }
+
+    /* SUBPAGES (Contratações, Favoritos, Avaliações, etc) */
+    .subpage-header {
+      padding: var(--space-4);
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-gray-100);
+    }
+    .subpage-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--color-gray-900);
+      margin-bottom: var(--space-1);
+    }
+    .subpage-subtitle {
+      font-size: 14px;
+      color: var(--color-gray-500);
+    }
+    .subpage-content {
+      padding: var(--space-4);
+    }
+
+    /* History Card (Contratações) */
+    .history-card {
+      display: flex;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-100);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-3);
+      box-shadow: var(--shadow-sm);
+    }
+    .history-card__photo {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .history-card__info { flex: 1; }
+    .history-card__name { font-weight: 700; color: var(--color-gray-900); margin-bottom: 2px; }
+    .history-card__service { font-size: 13px; color: var(--color-primary-dark); margin-bottom: var(--space-1); }
+    .history-card__date { font-size: 12px; color: var(--color-gray-500); }
+    .history-card__status {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: var(--space-2);
+    }
+    .history-card__status--done { background: var(--color-primary-bg); color: var(--color-primary-dark); }
+    .history-card__status--pending { background: #FEF3C7; color: #92400E; }
+
+    /* Favorite Card */
+    .favorite-card {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-100);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-3);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .favorite-card:hover {
+      border-color: var(--color-primary-light);
+      transform: translateY(-2px);
+    }
+    .favorite-card__photo {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+    }
+    .favorite-card__info { flex: 1; }
+    .favorite-card__name { font-weight: 700; color: var(--color-gray-900); }
+    .favorite-card__specialty { font-size: 13px; color: var(--color-gray-500); }
+    .favorite-card__heart { color: var(--color-pink); font-size: 20px; }
+
+    /* Review Card (Minhas avaliações) */
+    .review-card {
+      padding: var(--space-4);
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-100);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-3);
+      box-shadow: var(--shadow-sm);
+    }
+    .review-card__header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    .review-card__photo {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+    }
+    .review-card__provider { font-weight: 700; color: var(--color-gray-900); }
+    .review-card__date { font-size: 12px; color: var(--color-gray-500); }
+    .review-card__text {
+      font-size: 14px;
+      color: var(--color-gray-600);
+      line-height: 1.5;
+      margin-bottom: var(--space-2);
+    }
+
+    /* Settings List */
+    .settings-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4);
+      border-bottom: 1px solid var(--color-gray-100);
+      cursor: pointer;
+    }
+    .settings-item:hover { background: var(--color-gray-50); }
+    .settings-item__left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .settings-item__icon { font-size: 20px; }
+    .settings-item__text { color: var(--color-gray-700); }
+    .settings-item__arrow { color: var(--color-gray-400); }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: var(--space-7) var(--space-4);
+    }
+    .empty-state__icon { font-size: 48px; margin-bottom: var(--space-3); opacity: 0.5; }
+    .empty-state__text { color: var(--color-gray-500); }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header" id="header">
+      <a href="#" class="header__logo" onclick="showScreen('home'); return false;">Elo</a>
+      <button class="header__back" onclick="goBack()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Voltar
+      </button>
+      <div class="header__location">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span>Centro, Vila Nova</span>
+      </div>
+    </header>
+
+
+    <!-- HOME SCREEN -->
+    <main class="screen screen--active" id="screen-home">
+      <section class="search-section">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input type="text" placeholder="Qual serviço você precisa?" id="search-input">
+        </div>
+      </section>
+
+      <section class="categories">
+        <h2 class="categories__title">Categorias</h2>
+        <div class="categories__grid">
+          <button class="category-btn category-btn--active" onclick="filterCategory('todos')">
+            <span class="category-btn__icon">🏠</span>
+            <span class="category-btn__label">Todos</span>
+          </button>
+          <button class="category-btn" onclick="filterCategory('reparos')">
+            <span class="category-btn__icon">🔧</span>
+            <span class="category-btn__label">Reparos</span>
+          </button>
+          <button class="category-btn" onclick="filterCategory('limpeza')">
+            <span class="category-btn__icon">🧹</span>
+            <span class="category-btn__label">Limpeza</span>
+          </button>
+          <button class="category-btn" onclick="filterCategory('cuidados')">
+            <span class="category-btn__icon">💜</span>
+            <span class="category-btn__label">Cuidados</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="providers-section">
+        <div class="providers-section__header">
+          <h2 class="providers-section__title">Perto de você</h2>
+          <span class="providers-section__count" id="providers-count">5 prestadores</span>
+        </div>
+        <div class="providers-list" id="providers-list"></div>
+      </section>
+    </main>
+
+    <!-- PROFILE SCREEN (Prestador) -->
+    <main class="screen" id="screen-profile">
+      <section class="profile-hero">
+        <img src="" alt="" class="profile-photo" id="profile-photo">
+        <h1 class="profile-name" id="profile-name"></h1>
+        <p class="profile-specialty" id="profile-specialty"></p>
+        <div class="profile-badges" id="profile-badges"></div>
+      </section>
+
+      <section class="profile-section">
+        <h2 class="profile-section__title">Minha história</h2>
+        <div class="profile-story" id="profile-story"></div>
+      </section>
+
+      <section class="profile-section">
+        <h2 class="profile-section__title">O que eu faço</h2>
+        <div class="services-tags" id="profile-services"></div>
+      </section>
+
+      <section class="profile-section" style="border-bottom: none; padding-bottom: 100px;">
+        <div class="testimonials-header">
+          <h2 class="profile-section__title" style="margin-bottom: 0;">Quem já contratou</h2>
+          <span class="testimonials-count" id="testimonials-count"></span>
+        </div>
+        <div id="profile-testimonials"></div>
+        <button class="btn-add-testimonial" onclick="openModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v8M8 12h8"/>
+          </svg>
+          Contar minha experiência
+        </button>
+      </section>
+
+      <button class="whatsapp-btn" onclick="openWhatsApp()">
+        <svg viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </button>
+    </main>
+
+
+    <!-- MY PROFILE SCREEN (Usuário Logado) -->
+    <main class="screen" id="screen-my-profile">
+      <section class="my-profile-hero">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Augusto" class="my-profile-avatar">
+        <h1 class="my-profile-name">Augusto</h1>
+        <p class="my-profile-location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Centro, Vila Nova
+        </p>
+      </section>
+
+      <section class="my-profile-stats">
+        <div class="my-profile-stat">
+          <div class="my-profile-stat__number">12</div>
+          <div class="my-profile-stat__label">Contratações</div>
+        </div>
+        <div class="my-profile-stat">
+          <div class="my-profile-stat__number">8</div>
+          <div class="my-profile-stat__label">Avaliações</div>
+        </div>
+        <div class="my-profile-stat">
+          <div class="my-profile-stat__number">3</div>
+          <div class="my-profile-stat__label">Favoritos</div>
+        </div>
+      </section>
+
+      <section class="my-profile-menu">
+        <div class="my-profile-menu-item" onclick="showScreen('my-hires')">
+          <div class="my-profile-menu-item__icon my-profile-menu-item__icon--green">📋</div>
+          <div class="my-profile-menu-item__text">
+            <div class="my-profile-menu-item__title">Minhas contratações</div>
+            <div class="my-profile-menu-item__subtitle">Histórico de serviços</div>
+          </div>
+          <div class="my-profile-menu-item__arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+        <div class="my-profile-menu-item" onclick="showScreen('my-favorites')">
+          <div class="my-profile-menu-item__icon">❤️</div>
+          <div class="my-profile-menu-item__text">
+            <div class="my-profile-menu-item__title">Prestadores favoritos</div>
+            <div class="my-profile-menu-item__subtitle">3 salvos</div>
+          </div>
+          <div class="my-profile-menu-item__arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+        <div class="my-profile-menu-item" onclick="showScreen('my-reviews')">
+          <div class="my-profile-menu-item__icon">⭐</div>
+          <div class="my-profile-menu-item__text">
+            <div class="my-profile-menu-item__title">Minhas avaliações</div>
+            <div class="my-profile-menu-item__subtitle">8 avaliações feitas</div>
+          </div>
+          <div class="my-profile-menu-item__arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+        <div class="my-profile-menu-item" onclick="showScreen('settings')">
+          <div class="my-profile-menu-item__icon">⚙️</div>
+          <div class="my-profile-menu-item__text">
+            <div class="my-profile-menu-item__title">Configurações</div>
+            <div class="my-profile-menu-item__subtitle">Conta e privacidade</div>
+          </div>
+          <div class="my-profile-menu-item__arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+        <div class="my-profile-menu-item" onclick="showScreen('help')">
+          <div class="my-profile-menu-item__icon">❓</div>
+          <div class="my-profile-menu-item__text">
+            <div class="my-profile-menu-item__title">Ajuda</div>
+            <div class="my-profile-menu-item__subtitle">Central de suporte</div>
+          </div>
+          <div class="my-profile-menu-item__arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- MINHAS CONTRATAÇÕES -->
+    <main class="screen" id="screen-my-hires">
+      <div class="subpage-header">
+        <h1 class="subpage-title">Minhas contratações</h1>
+        <p class="subpage-subtitle">Histórico de serviços realizados</p>
+      </div>
+      <div class="subpage-content" id="hires-list"></div>
+    </main>
+
+    <!-- FAVORITOS -->
+    <main class="screen" id="screen-my-favorites">
+      <div class="subpage-header">
+        <h1 class="subpage-title">Favoritos</h1>
+        <p class="subpage-subtitle">Prestadores que você salvou</p>
+      </div>
+      <div class="subpage-content" id="favorites-list"></div>
+    </main>
+
+    <!-- MINHAS AVALIAÇÕES -->
+    <main class="screen" id="screen-my-reviews">
+      <div class="subpage-header">
+        <h1 class="subpage-title">Minhas avaliações</h1>
+        <p class="subpage-subtitle">Avaliações que você deixou</p>
+      </div>
+      <div class="subpage-content" id="reviews-list"></div>
+    </main>
+
+    <!-- CONFIGURAÇÕES -->
+    <main class="screen" id="screen-settings">
+      <div class="subpage-header">
+        <h1 class="subpage-title">Configurações</h1>
+        <p class="subpage-subtitle">Conta e privacidade</p>
+      </div>
+      <div class="subpage-content" style="padding: 0;">
+        <div class="settings-item">
+          <div class="settings-item__left"><span class="settings-item__icon">👤</span><span class="settings-item__text">Editar perfil</span></div>
+          <span class="settings-item__arrow">›</span>
+        </div>
+        <div class="settings-item">
+          <div class="settings-item__left"><span class="settings-item__icon">📍</span><span class="settings-item__text">Endereço</span></div>
+          <span class="settings-item__arrow">›</span>
+        </div>
+        <div class="settings-item">
+          <div class="settings-item__left"><span class="settings-item__icon">🔔</span><span class="settings-item__text">Notificações</span></div>
+          <span class="settings-item__arrow">›</span>
+        </div>
+        <div class="settings-item">
+          <div class="settings-item__left"><span class="settings-item__icon">🔒</span><span class="settings-item__text">Privacidade</span></div>
+          <span class="settings-item__arrow">›</span>
+        </div>
+        <div class="settings-item">
+          <div class="settings-item__left"><span class="settings-item__icon">🚪</span><span class="settings-item__text">Sair da conta</span></div>
+          <span class="settings-item__arrow">›</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- AJUDA -->
+    <main class="screen" id="screen-help">
+      <div class="subpage-header">
+        <h1 class="subpage-title">Ajuda</h1>
+        <p class="subpage-subtitle">Central de suporte</p>
+      </div>
+      <div class="subpage-content" style="padding: 0;">
+        <div class="settings-item">
+          <div class="settings-item__left"><span class="settings-item__icon">❓</span><span class="settings-item__text">Perguntas frequentes</span></div>
+          <span class="settings-item__arrow">›</span>
+        </div>
+        <div class="settings-item">
+          <div class="settings-item__left"><span class="settings-item__icon">💬</span><span class="settings-item__text">Fale conosco</span></div>
+          <span class="settings-item__arrow">›</span>
+        </div>
+        <div class="settings-item">
+          <div class="settings-item__left"><span class="settings-item__icon">📋</span><span class="settings-item__text">Termos de uso</span></div>
+          <span class="settings-item__arrow">›</span>
+        </div>
+        <div class="settings-item">
+          <div class="settings-item__left"><span class="settings-item__icon">🔐</span><span class="settings-item__text">Política de privacidade</span></div>
+          <span class="settings-item__arrow">›</span>
+        </div>
+        <div class="settings-item">
+          <div class="settings-item__left"><span class="settings-item__icon">ℹ️</span><span class="settings-item__text">Sobre o Elo</span></div>
+          <span class="settings-item__arrow">›</span>
+        </div>
+      </div>
+    </main>
+
+
+    <!-- TESTIMONIAL MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal">
+        <div class="modal__header">
+          <h2 class="modal__title">Sua experiência</h2>
+          <button class="modal__close" onclick="closeModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal__body">
+          <form id="testimonial-form" onsubmit="submitTestimonial(event)">
+            
+            <!-- Usuário logado -->
+            <div class="user-info-display">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Augusto" class="user-info-display__avatar">
+              <div>
+                <div class="user-info-display__name">Augusto</div>
+                <div class="user-info-display__label">Avaliando como</div>
+              </div>
+            </div>
+
+            <!-- AVALIAÇÃO QUANTITATIVA -->
+            <div class="rating-section">
+              <label class="form-label">O que foi bom?</label>
+              <p class="form-hint" style="margin-bottom: var(--space-3);">Selecione o que melhor descreve sua experiência</p>
+              
+              <!-- Funcional -->
+              <div class="rating-category">
+                <div class="rating-category__header">
+                  <div class="rating-category__icon rating-category__icon--functional">🔧</div>
+                  <span class="rating-category__title">O serviço</span>
+                  <span class="rating-category__subtitle">Funcional</span>
+                </div>
+                <div class="rating-chips">
+                  <button type="button" class="rating-chip rating-chip--functional" data-category="functional" data-value="Resolveu o problema" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Resolveu o problema
+                  </button>
+                  <button type="button" class="rating-chip rating-chip--functional" data-category="functional" data-value="Pontual" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Pontual
+                  </button>
+                  <button type="button" class="rating-chip rating-chip--functional" data-category="functional" data-value="Preço justo" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Preço justo
+                  </button>
+                  <button type="button" class="rating-chip rating-chip--functional" data-category="functional" data-value="Trabalho caprichado" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Trabalho caprichado
+                  </button>
+                  <button type="button" class="rating-chip rating-chip--functional" data-category="functional" data-value="Organizado" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Organizado
+                  </button>
+                </div>
+              </div>
+
+              <!-- Social -->
+              <div class="rating-category">
+                <div class="rating-category__header">
+                  <div class="rating-category__icon rating-category__icon--social">💬</div>
+                  <span class="rating-category__title">A relação</span>
+                  <span class="rating-category__subtitle">Social</span>
+                </div>
+                <div class="rating-chips">
+                  <button type="button" class="rating-chip rating-chip--social" data-category="social" data-value="Boa comunicação" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Boa comunicação
+                  </button>
+                  <button type="button" class="rating-chip rating-chip--social" data-category="social" data-value="Respeitoso" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Respeitoso
+                  </button>
+                  <button type="button" class="rating-chip rating-chip--social" data-category="social" data-value="Profissional" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Profissional
+                  </button>
+                  <button type="button" class="rating-chip rating-chip--social" data-category="social" data-value="Explicou bem" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Explicou bem
+                  </button>
+                </div>
+              </div>
+
+              <!-- Emocional -->
+              <div class="rating-category">
+                <div class="rating-category__header">
+                  <div class="rating-category__icon rating-category__icon--emotional">💚</div>
+                  <span class="rating-category__title">O sentimento</span>
+                  <span class="rating-category__subtitle">Emocional</span>
+                </div>
+                <div class="rating-chips">
+                  <button type="button" class="rating-chip rating-chip--emotional" data-category="emotional" data-value="Me senti seguro(a)" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Me senti seguro(a)
+                  </button>
+                  <button type="button" class="rating-chip rating-chip--emotional" data-category="emotional" data-value="Cuidadoso(a)" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Cuidadoso(a)
+                  </button>
+                  <button type="button" class="rating-chip rating-chip--emotional" data-category="emotional" data-value="Confiável" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Confiável
+                  </button>
+                  <button type="button" class="rating-chip rating-chip--emotional" data-category="emotional" data-value="Indicaria com certeza" onclick="toggleChip(this)">
+                    <svg class="rating-chip__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    Indicaria com certeza
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Relato qualitativo -->
+            <div class="form-group">
+              <label class="form-label">Quer contar mais? (opcional)</label>
+              <textarea class="form-textarea" id="testimonial-text" placeholder="Conte como foi o serviço, o que você achou do atendimento..."></textarea>
+              <span class="form-hint">Seu relato ajuda outras pessoas a decidirem</span>
+            </div>
+            
+            <button type="submit" class="btn-submit">Enviar avaliação</button>
+          </form>
+          
+          <div class="success-message hidden" id="success-message">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3>Obrigado!</h3>
+            <p>Sua avaliação foi enviada e vai ajudar outras pessoas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- BOTTOM NAVIGATION - 2 itens -->
+    <nav class="bottom-nav">
+      <button class="nav-item nav-item--active" id="nav-home" onclick="showScreen('home')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>Início</span>
+      </button>
+      <button class="nav-item" id="nav-profile" onclick="showScreen('my-profile')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>Perfil</span>
+      </button>
+    </nav>
+  </div>
+
+  <script>
+    // ============================================
+    // DATA - Usuário logado
+    // ============================================
+    const loggedUser = {
+      name: "Augusto",
+      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face",
+      location: "Centro, Vila Nova"
+    };
+
+    // ============================================
+    // DATA - Prestadores
+    // ============================================
+    const providers = [
+      {
+        id: 1,
+        name: "Maria Santos",
+        specialty: "Diarista",
+        category: "limpeza",
+        photo: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop&crop=face",
+        experience: "8 anos",
+        region: "Centro, Vila Nova",
+        badges: ["Pontual", "8 anos de experiência"],
+        story: `<p>Comecei a trabalhar como diarista quando meus filhos ainda eram pequenos. Precisava de um trabalho que me desse flexibilidade para cuidar deles.</p><p>Hoje, depois de 8 anos, tenho clientes que viraram amigos. Gosto de deixar tudo organizado do jeito que cada pessoa prefere. Cada casa tem seu jeito.</p>`,
+        services: ["Limpeza residencial", "Organização", "Passar roupa", "Limpeza pós-obra"],
+        whatsapp: "5511999999999",
+        testimonials: [
+          { name: "Carla", initial: "C", text: "A Maria é uma pessoa incrível. Cuida da minha casa há 3 anos como se fosse dela. Muito organizada e atenciosa.", date: "Nov 2024", tags: { functional: ["Trabalho caprichado", "Organizado"], social: ["Respeitoso"], emotional: ["Confiável"] } },
+          { name: "Roberto", initial: "R", text: "Pontualidade impecável. Sempre chega no horário e faz um trabalho excelente. Recomendo muito.", date: "Out 2024", tags: { functional: ["Pontual", "Trabalho caprichado"], social: ["Profissional"], emotional: ["Indicaria com certeza"] } }
+        ]
+      },
+      {
+        id: 2,
+        name: "Carlos Oliveira",
+        specialty: "Encanador",
+        category: "reparos",
+        photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=face",
+        experience: "15 anos",
+        region: "Centro, Jardim América",
+        badges: ["Experiente", "15 anos no ofício"],
+        story: `<p>Aprendi o ofício com meu tio quando tinha 18 anos. Ele dizia que encanador bom é aquele que resolve o problema e não volta.</p><p>Trabalho com hidráulica residencial e comercial. Gosto de explicar pro cliente o que aconteceu e como evitar o problema no futuro.</p>`,
+        services: ["Vazamentos", "Instalação de torneiras", "Desentupimento", "Caixa d'água", "Aquecedor"],
+        whatsapp: "5511988888888",
+        testimonials: [
+          { name: "Ana Paula", initial: "A", text: "O Carlos resolveu um vazamento que outros não conseguiram encontrar. Muito competente e honesto no orçamento.", date: "Nov 2024", tags: { functional: ["Resolveu o problema", "Preço justo"], social: ["Explicou bem"], emotional: ["Confiável"] } },
+          { name: "Marcos", initial: "M", text: "Profissional de confiança. Já chamei 3 vezes e sempre resolveu rápido. Preço justo.", date: "Set 2024", tags: { functional: ["Resolveu o problema", "Pontual", "Preço justo"], social: ["Profissional"], emotional: ["Indicaria com certeza"] } },
+          { name: "Lúcia", initial: "L", text: "Indicação da vizinha. Chegou no horário, explicou tudo direitinho. Vou guardar o contato.", date: "Ago 2024", tags: { functional: ["Pontual"], social: ["Boa comunicação", "Explicou bem"], emotional: ["Me senti seguro(a)"] } }
+        ]
+      },
+      {
+        id: 3,
+        name: "Ana Rodrigues",
+        specialty: "Cuidadora de idosos",
+        category: "cuidados",
+        photo: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=200&h=200&fit=crop&crop=face",
+        experience: "12 anos",
+        region: "Vila Nova, Centro",
+        badges: ["Curso técnico", "12 anos de experiência"],
+        story: `<p>Comecei cuidando da minha avó e descobri que tinha vocação pra isso. Fiz curso técnico de cuidador e nunca mais parei.</p><p>Cada pessoa que cuido me ensina algo. Tenho paciência e carinho, porque sei que um dia também vou precisar de alguém assim.</p>`,
+        services: ["Acompanhamento diário", "Auxílio medicação", "Higiene pessoal", "Companhia", "Acompanhamento médico"],
+        whatsapp: "5511977777777",
+        testimonials: [
+          { name: "Fernanda", initial: "F", text: "A Ana cuidou da minha mãe por 2 anos. Mais que cuidadora, virou parte da família. Profissional e muito humana.", date: "Nov 2024", tags: { functional: ["Trabalho caprichado"], social: ["Respeitoso", "Profissional"], emotional: ["Cuidadoso(a)", "Confiável"] } },
+          { name: "José", initial: "J", text: "Meu pai é difícil, mas a Ana tem uma paciência incrível. Ele gosta dela, o que é raro.", date: "Out 2024", tags: { functional: ["Resolveu o problema"], social: ["Boa comunicação"], emotional: ["Cuidadoso(a)", "Me senti seguro(a)"] } }
+        ]
+      },
+      {
+        id: 4,
+        name: "Pedro Almeida",
+        specialty: "Pintor",
+        category: "reparos",
+        photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
+        experience: "20 anos",
+        region: "Jardim América, Centro",
+        badges: ["Caprichoso", "20 anos de experiência"],
+        story: `<p>Pintor de segunda geração. Meu pai era pintor e me ensinou que o acabamento é o que separa o amador do profissional.</p><p>Faço pintura residencial e comercial. Gosto de ajudar o cliente a escolher as cores certas - às vezes a pessoa tem uma ideia que não vai funcionar e prefiro ser sincero.</p>`,
+        services: ["Pintura interna", "Pintura externa", "Textura", "Grafiato", "Massa corrida"],
+        whatsapp: "5511966666666",
+        testimonials: [
+          { name: "Renata", initial: "R", text: "O Pedro é muito caprichoso. Protegeu todos os móveis, limpou tudo no final. A pintura ficou perfeita.", date: "Out 2024", tags: { functional: ["Trabalho caprichado", "Organizado"], social: ["Profissional"], emotional: ["Indicaria com certeza"] } },
+          { name: "Eduardo", initial: "E", text: "Pintou meu apartamento inteiro em 4 dias. Trabalho limpo e bem feito. Preço justo.", date: "Set 2024", tags: { functional: ["Pontual", "Preço justo", "Trabalho caprichado"], social: ["Boa comunicação"], emotional: ["Confiável"] } }
+        ]
+      },
+      {
+        id: 5,
+        name: "Dona Tereza",
+        specialty: "Costureira",
+        category: "todos",
+        photo: "https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=200&h=200&fit=crop&crop=face",
+        experience: "35 anos",
+        region: "Centro",
+        badges: ["Artesã", "35 anos de experiência"],
+        story: `<p>Aprendi a costurar com minha mãe quando tinha 10 anos. Hoje faço de tudo: ajustes, consertos, roupas sob medida.</p><p>Gosto especialmente de dar vida nova a roupas que as pessoas iam jogar fora. Com um ajuste aqui e ali, fica melhor que nova.</p>`,
+        services: ["Ajustes", "Consertos", "Bainhas", "Roupas sob medida", "Customização"],
+        whatsapp: "5511955555555",
+        testimonials: [
+          { name: "Mariana", initial: "M", text: "A Dona Tereza ajustou meu vestido de casamento. Ficou perfeito! Muito cuidadosa e atenciosa.", date: "Nov 2024", tags: { functional: ["Trabalho caprichado"], social: ["Respeitoso"], emotional: ["Cuidadoso(a)", "Indicaria com certeza"] } }
+        ]
+      }
+    ];
+
+    // ============================================
+    // DATA - Contratações do usuário
+    // ============================================
+    const myHires = [
+      { providerId: 1, service: "Limpeza residencial", date: "28 Nov 2024", status: "done" },
+      { providerId: 2, service: "Conserto de vazamento", date: "15 Nov 2024", status: "done" },
+      { providerId: 4, service: "Pintura da sala", date: "02 Nov 2024", status: "done" },
+      { providerId: 3, service: "Acompanhamento", date: "20 Out 2024", status: "done" },
+      { providerId: 1, service: "Limpeza pós-obra", date: "10 Out 2024", status: "done" }
+    ];
+
+    // ============================================
+    // DATA - Favoritos do usuário
+    // ============================================
+    const myFavorites = [1, 2, 3]; // IDs dos providers favoritos
+
+    // ============================================
+    // DATA - Avaliações feitas pelo usuário
+    // ============================================
+    const myReviews = [
+      { providerId: 1, text: "Excelente trabalho! A Maria deixou minha casa impecável.", date: "28 Nov 2024", tags: { functional: ["Trabalho caprichado"], emotional: ["Confiável"] } },
+      { providerId: 2, text: "Carlos resolveu um vazamento difícil. Super recomendo!", date: "15 Nov 2024", tags: { functional: ["Resolveu o problema"], social: ["Explicou bem"] } },
+      { providerId: 4, text: "Pintura perfeita, muito caprichoso com os detalhes.", date: "02 Nov 2024", tags: { functional: ["Trabalho caprichado", "Organizado"] } }
+    ];
+
+    let currentProvider = null;
+    let currentCategory = 'todos';
+    let selectedRatings = { functional: [], social: [], emotional: [] };
+    let previousScreen = 'home';
+
+
+    // ============================================
+    // RENDER FUNCTIONS
+    // ============================================
+    function renderProviderCard(provider) {
+      const testimonialCount = provider.testimonials.length;
+      return `
+        <article class="provider-card" onclick="showProfile(${provider.id})">
+          <img src="${provider.photo}" alt="${provider.name}" class="provider-card__photo">
+          <div class="provider-card__info">
+            <h3 class="provider-card__name">${provider.name}</h3>
+            <p class="provider-card__specialty">${provider.specialty}</p>
+            <div class="provider-card__meta">
+              <span class="provider-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                ${provider.region.split(',')[0]}
+              </span>
+              <span class="provider-card__meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                ${testimonialCount} ${testimonialCount === 1 ? 'relato' : 'relatos'}
+              </span>
+            </div>
+            <span class="provider-card__badge">⭐ ${provider.experience}</span>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderProvidersList() {
+      const list = document.getElementById('providers-list');
+      const count = document.getElementById('providers-count');
+      let filtered = providers;
+      if (currentCategory !== 'todos') {
+        filtered = providers.filter(p => p.category === currentCategory);
+      }
+      list.innerHTML = filtered.map(renderProviderCard).join('');
+      count.textContent = `${filtered.length} ${filtered.length === 1 ? 'prestador' : 'prestadores'}`;
+    }
+
+    function renderTestimonialTags(tags) {
+      if (!tags) return '';
+      let html = '<div class="testimonial-tags">';
+      if (tags.functional && tags.functional.length) {
+        tags.functional.forEach(tag => { html += `<span class="testimonial-tag testimonial-tag--functional">🔧 ${tag}</span>`; });
+      }
+      if (tags.social && tags.social.length) {
+        tags.social.forEach(tag => { html += `<span class="testimonial-tag testimonial-tag--social">💬 ${tag}</span>`; });
+      }
+      if (tags.emotional && tags.emotional.length) {
+        tags.emotional.forEach(tag => { html += `<span class="testimonial-tag testimonial-tag--emotional">💚 ${tag}</span>`; });
+      }
+      html += '</div>';
+      return html;
+    }
+
+    function renderProfile(provider) {
+      document.getElementById('profile-photo').src = provider.photo;
+      document.getElementById('profile-photo').alt = provider.name;
+      document.getElementById('profile-name').textContent = provider.name;
+      document.getElementById('profile-specialty').textContent = provider.specialty;
+      
+      const badgesHtml = provider.badges.map(badge => 
+        `<span class="profile-badge">${badge}</span>`
+      ).join('') + `<span class="profile-badge profile-badge--highlight">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        ${provider.region}
+      </span>`;
+      document.getElementById('profile-badges').innerHTML = badgesHtml;
+      document.getElementById('profile-story').innerHTML = provider.story;
+      
+      const servicesHtml = provider.services.map(service => 
+        `<span class="service-tag">${service}</span>`
+      ).join('');
+      document.getElementById('profile-services').innerHTML = servicesHtml;
+      
+      const testimonialsHtml = provider.testimonials.map(t => `
+        <div class="testimonial-card">
+          <p class="testimonial-text">${t.text}</p>
+          ${renderTestimonialTags(t.tags)}
+          <div class="testimonial-author">
+            <div class="testimonial-author__avatar">${t.initial}</div>
+            <div class="testimonial-author__info">
+              <span class="testimonial-author__name">${t.name}</span>
+              <span class="testimonial-author__date">${t.date}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      document.getElementById('profile-testimonials').innerHTML = testimonialsHtml;
+      document.getElementById('testimonials-count').textContent = 
+        `${provider.testimonials.length} ${provider.testimonials.length === 1 ? 'relato' : 'relatos'}`;
+    }
+
+    function renderMyHires() {
+      const list = document.getElementById('hires-list');
+      if (myHires.length === 0) {
+        list.innerHTML = '<div class="empty-state"><div class="empty-state__icon">📋</div><p class="empty-state__text">Nenhuma contratação ainda</p></div>';
+        return;
+      }
+      list.innerHTML = myHires.map(hire => {
+        const provider = providers.find(p => p.id === hire.providerId);
+        return `
+          <div class="history-card">
+            <img src="${provider.photo}" alt="${provider.name}" class="history-card__photo">
+            <div class="history-card__info">
+              <div class="history-card__name">${provider.name}</div>
+              <div class="history-card__service">${hire.service}</div>
+              <div class="history-card__date">${hire.date}</div>
+              <span class="history-card__status history-card__status--${hire.status}">${hire.status === 'done' ? '✓ Concluído' : '⏳ Pendente'}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderMyFavorites() {
+      const list = document.getElementById('favorites-list');
+      const favProviders = providers.filter(p => myFavorites.includes(p.id));
+      if (favProviders.length === 0) {
+        list.innerHTML = '<div class="empty-state"><div class="empty-state__icon">❤️</div><p class="empty-state__text">Nenhum favorito ainda</p></div>';
+        return;
+      }
+      list.innerHTML = favProviders.map(provider => `
+        <div class="favorite-card" onclick="showProfile(${provider.id})">
+          <img src="${provider.photo}" alt="${provider.name}" class="favorite-card__photo">
+          <div class="favorite-card__info">
+            <div class="favorite-card__name">${provider.name}</div>
+            <div class="favorite-card__specialty">${provider.specialty}</div>
+          </div>
+          <span class="favorite-card__heart">❤️</span>
+        </div>
+      `).join('');
+    }
+
+    function renderMyReviews() {
+      const list = document.getElementById('reviews-list');
+      if (myReviews.length === 0) {
+        list.innerHTML = '<div class="empty-state"><div class="empty-state__icon">⭐</div><p class="empty-state__text">Nenhuma avaliação ainda</p></div>';
+        return;
+      }
+      list.innerHTML = myReviews.map(review => {
+        const provider = providers.find(p => p.id === review.providerId);
+        return `
+          <div class="review-card">
+            <div class="review-card__header">
+              <img src="${provider.photo}" alt="${provider.name}" class="review-card__photo">
+              <div>
+                <div class="review-card__provider">${provider.name}</div>
+                <div class="review-card__date">${review.date}</div>
+              </div>
+            </div>
+            <p class="review-card__text">${review.text}</p>
+            ${renderTestimonialTags(review.tags)}
+          </div>
+        `;
+      }).join('');
+    }
+
+
+    // ============================================
+    // NAVIGATION
+    // ============================================
+    function showScreen(screenName) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('screen--active'));
+      const screen = document.getElementById(`screen-${screenName}`);
+      if (screen) screen.classList.add('screen--active');
+      
+      const header = document.getElementById('header');
+      header.classList.remove('header--profile', 'header--my-profile');
+      
+      // Subpages that need back button
+      const subpages = ['profile', 'my-profile', 'my-hires', 'my-favorites', 'my-reviews', 'settings', 'help'];
+      if (subpages.includes(screenName)) {
+        header.classList.add('header--profile');
+      }
+      
+      // Update nav
+      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('nav-item--active'));
+      if (screenName === 'home') document.getElementById('nav-home').classList.add('nav-item--active');
+      if (screenName === 'my-profile') document.getElementById('nav-profile').classList.add('nav-item--active');
+      
+      // Render content for subpages
+      if (screenName === 'my-hires') renderMyHires();
+      if (screenName === 'my-favorites') renderMyFavorites();
+      if (screenName === 'my-reviews') renderMyReviews();
+      
+      // Track previous screen for back navigation
+      if (!['profile', 'my-hires', 'my-reviews', 'settings', 'help'].includes(screenName)) {
+        previousScreen = screenName;
+      }
+      
+      window.scrollTo(0, 0);
+    }
+
+    function showProfile(providerId) {
+      currentProvider = providers.find(p => p.id === providerId);
+      if (currentProvider) {
+        renderProfile(currentProvider);
+        showScreen('profile');
+      }
+    }
+
+    function goBack() {
+      // From profile subpages, go back to my-profile
+      const profileSubpages = ['my-hires', 'my-favorites', 'my-reviews', 'settings', 'help'];
+      const currentScreen = document.querySelector('.screen--active');
+      const currentId = currentScreen ? currentScreen.id.replace('screen-', '') : '';
+      
+      if (profileSubpages.includes(currentId)) {
+        showScreen('my-profile');
+      } else if (currentId === 'profile') {
+        showScreen('home');
+      } else if (currentId === 'my-profile') {
+        showScreen('home');
+      } else {
+        showScreen(previousScreen || 'home');
+      }
+    }
+
+    // ============================================
+    // CATEGORY FILTER
+    // ============================================
+    function filterCategory(category) {
+      currentCategory = category;
+      document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('category-btn--active'));
+      event.target.closest('.category-btn').classList.add('category-btn--active');
+      renderProvidersList();
+    }
+
+    // ============================================
+    // RATING CHIPS
+    // ============================================
+    function toggleChip(chip) {
+      const category = chip.dataset.category;
+      const value = chip.dataset.value;
+      chip.classList.toggle('rating-chip--selected');
+      if (chip.classList.contains('rating-chip--selected')) {
+        selectedRatings[category].push(value);
+      } else {
+        selectedRatings[category] = selectedRatings[category].filter(v => v !== value);
+      }
+    }
+
+    function resetRatings() {
+      selectedRatings = { functional: [], social: [], emotional: [] };
+      document.querySelectorAll('.rating-chip').forEach(chip => chip.classList.remove('rating-chip--selected'));
+    }
+
+    // ============================================
+    // MODAL
+    // ============================================
+    function openModal() {
+      document.getElementById('modal-overlay').classList.add('modal-overlay--active');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('testimonial-form').classList.remove('hidden');
+      document.getElementById('success-message').classList.add('hidden');
+      document.getElementById('testimonial-form').reset();
+      resetRatings();
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('modal-overlay--active');
+      document.body.style.overflow = '';
+    }
+
+    function submitTestimonial(event) {
+      event.preventDefault();
+      const text = document.getElementById('testimonial-text').value;
+      
+      const tags = {};
+      if (selectedRatings.functional.length) tags.functional = [...selectedRatings.functional];
+      if (selectedRatings.social.length) tags.social = [...selectedRatings.social];
+      if (selectedRatings.emotional.length) tags.emotional = [...selectedRatings.emotional];
+      
+      if (currentProvider) {
+        currentProvider.testimonials.unshift({
+          name: loggedUser.name,
+          initial: loggedUser.name.charAt(0).toUpperCase(),
+          text: text || 'Avaliação sem comentário adicional.',
+          date: 'Agora',
+          tags: Object.keys(tags).length ? tags : null
+        });
+        renderProfile(currentProvider);
+      }
+      
+      document.getElementById('testimonial-form').classList.add('hidden');
+      document.getElementById('success-message').classList.remove('hidden');
+      setTimeout(() => { closeModal(); }, 2000);
+    }
+
+    document.getElementById('modal-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    // ============================================
+    // WHATSAPP
+    // ============================================
+    function openWhatsApp() {
+      if (currentProvider) {
+        const message = encodeURIComponent(`Olá ${currentProvider.name}! Encontrei seu perfil no Elo e gostaria de saber mais sobre seus serviços.`);
+        window.open(`https://wa.me/${currentProvider.whatsapp}?text=${message}`, '_blank');
+      }
+    }
+
+    // ============================================
+    // SEARCH
+    // ============================================
+    document.getElementById('search-input').addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase();
+      const cards = document.querySelectorAll('.provider-card');
+      cards.forEach(card => {
+        const name = card.querySelector('.provider-card__name').textContent.toLowerCase();
+        const specialty = card.querySelector('.provider-card__specialty').textContent.toLowerCase();
+        const matches = name.includes(query) || specialty.includes(query);
+        card.style.display = matches ? 'flex' : 'none';
+      });
+    });
+
+    // ============================================
+    // INIT
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+      renderProvidersList();
+    });
+  </script>
+</body>
+</html>
